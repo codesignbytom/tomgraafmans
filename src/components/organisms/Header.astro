@@ -112,6 +112,10 @@ import OpenMenuButton from "../atoms/OpenMenuButton.astro";
     closeMenuButton.addEventListener("click", () => {
       closeMenu();
     });
+
+    menuOverlay.addEventListener("click", () => {
+      closeMenu();
+    });
   }
 
   init();
