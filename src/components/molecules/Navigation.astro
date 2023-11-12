@@ -11,7 +11,8 @@ const currentPageClasses =
   <a href="/" class={pathName === "/" ? currentPageClasses : null}>Home</a>
   <a
     href="/portfolio/"
-    class={pathName === "/portfolio/" ? currentPageClasses : null}>Portfolio</a
+    class={pathName.includes("/portfolio/") ? currentPageClasses : null}
+    >Portfolio</a
   >
   <a
     href="/contact/"
