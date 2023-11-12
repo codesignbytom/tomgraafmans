@@ -1,0 +1,38 @@
+---
+import Head from "../components/organisms/Head.astro";
+import Header from "../components/organisms/Header.astro";
+import Footer from "../components/organisms/Footer.astro";
+import "../assets/styles/main.css";
+
+// Vendor imports
+import "@phosphor-icons/web/light";
+import "@phosphor-icons/web/regular";
+import "@phosphor-icons/web/bold";
+import "@phosphor-icons/web/fill";
+
+const description = "Developer & designer";
+const permalink = new URL("./", import.meta.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <Head {description} {permalink} />
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <script>
+      import Lenis from "@studio-freight/lenis";
+      const lenis = new Lenis();
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+    <Footer />
+  </body>
+</html>
