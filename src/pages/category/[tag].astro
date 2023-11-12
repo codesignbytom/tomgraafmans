@@ -5,21 +5,18 @@ import ProjectPreview from "../../components/molecules/ProjectPreview.astro";
 
 export async function getStaticPaths() {
   const allProjects = await getCollection("portfolio");
-
   const uniqueTags = [
     ...new Set(allProjects.flatMap((project) => project.data.tags)),
   ];
 
-  return uniqueTags.map((tag) => {
-    const filteredProjects = allProjects.filter((project) =>
-      project.data.tags?.includes(tag)
-    );
-
-    return {
-      params: { tag },
-      props: { projects: filteredProjects },
-    };
-  });
+  return uniqueTags.map((tag) => ({
+    params: { tag },
+    props: {
+      projects: allProjects.filter((project) =>
+        project.data.tags?.includes(tag)
+      ),
+    },
+  }));
 }
 
 const { tag } = Astro.params;
@@ -36,7 +33,6 @@ const { projects } = Astro.props;
         projects.map((project) => (
           <>
             <ProjectPreview
-              project={project}
               url={`/portfolio/${project.slug}/`}
               title={project.data.title}
               thumbnailSrc={project.data.thumbnail}
