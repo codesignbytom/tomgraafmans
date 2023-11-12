@@ -1,0 +1,50 @@
+---
+const {
+  quote,
+  quoteTitle,
+  referrerPicture,
+  referrerName,
+  referrerPosition,
+  company,
+  companyUrl,
+} = Astro.props;
+---
+
+<div class="flex flex-col gap-6">
+  <h4 class="text-h3">{quoteTitle}</h4>
+  <blockquote>
+    {quote}
+  </blockquote>
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-row items-center gap-4">
+      {
+        referrerPicture && (
+          <img
+            src={referrerPicture}
+            alt={referrerName}
+            class="w-16 h-16 rounded-full hover:rotate-12 transition-transform duration-700 ease-in-out"
+            loading="lazy"
+          />
+        )
+      }
+      <div class="flex flex-col gap-0.5">
+        <cite class="font-semibold not-italic">{referrerName}</cite>
+        {
+          company && companyUrl && (
+            <div class="text-sm opacity-75 flex gap-1">
+              {referrerPosition}
+              <span>bij</span>
+              <a
+                href={companyUrl}
+                target="_blank"
+                class="underline hover:text-primary-600"
+              >
+                {company}
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</div>

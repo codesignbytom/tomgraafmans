@@ -1,0 +1,48 @@
+<button
+  id="open-menu-button"
+  class="fixed z-30 flex items-center justify-center text-2xl text-white transition-all duration-300 ease-in-out scale-0 rounded-full top-6 right-6 hover:bg-primary-700 bg-primary-600 h-14 w-14"
+>
+  <i class="ph ph-list"></i>
+</button>
+
+<script>
+  const openMenuButton = document.querySelector(
+    "#open-menu-button"
+  ) as HTMLButtonElement;
+
+  function scaleOpenMenuButtonOnScroll() {
+    let lastScrollTop = 0;
+    const scrollThreshold = window.innerHeight * 0.3;
+
+    const handlePageLoad = () => {
+      const sessionState =
+        sessionStorage.getItem("scrolledPastThreshold") === "true";
+      if (sessionState && window.scrollY > scrollThreshold) {
+        openMenuButton.classList.add("scale-100");
+      } else {
+        openMenuButton.classList.remove("scale-100");
+        sessionStorage.removeItem("scrolledPastThreshold");
+      }
+    };
+
+    const handleScroll = () => {
+      let currentScrollTop = window.scrollY;
+      if (
+        currentScrollTop > lastScrollTop &&
+        currentScrollTop > scrollThreshold
+      ) {
+        openMenuButton.classList.add("scale-100");
+        sessionStorage.setItem("scrolledPastThreshold", "true");
+      } else if (currentScrollTop < lastScrollTop) {
+        openMenuButton.classList.remove("scale-100");
+        sessionStorage.removeItem("scrolledPastThreshold");
+      }
+      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("load", handlePageLoad);
+  }
+
+  scaleOpenMenuButtonOnScroll();
+</script>

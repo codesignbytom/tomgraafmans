@@ -1,0 +1,20 @@
+---
+const { header } = Astro.props;
+const pathName = Astro.url.pathname;
+const currentPageClasses =
+  "relative flex items-center after:absolute after:right-0 after:bg-primary-600 after:w-2 after:h-2 after:rounded-sm after:animate-spin_slow after:ml-4";
+---
+
+<nav
+  class=`flex ${header === true ? " flex-col gap-6 text-h3" : "flex-col gap-3"}`
+>
+  <a href="/" class={pathName === "/" ? currentPageClasses : null}>Home</a>
+  <a
+    href="/portfolio/"
+    class={pathName === "/portfolio/" ? currentPageClasses : null}>Portfolio</a
+  >
+  <a
+    href="/contact/"
+    class={pathName === "/contact/" ? currentPageClasses : null}>Contact</a
+  >
+</nav>

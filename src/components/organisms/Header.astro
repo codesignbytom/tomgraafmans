@@ -1,0 +1,118 @@
+---
+import Navigation from "../molecules/Navigation.astro";
+import Logo from "../atoms/Logo.astro";
+import MySocialLink from "../atoms/MySocialLink.astro";
+import OpenMenuButton from "../atoms/OpenMenuButton.astro";
+---
+
+<header class="py-4">
+  <div class="container flex items-center justify-between">
+    <Logo />
+    <div
+      id="menu"
+      class="fixed top-0 -left-full leading-none bg-white w-full h-full z-50 py-4 transition-all duration-500 ease-in-out max-w-xl"
+    >
+      <div class="container flex flex-col gap-12 py-28 justify-between h-full">
+        <div class="flex flex-col gap-12">
+          <div class="flex gap-4 items-center justify-between">
+            <div class="text-caption--xs pb-3 border-b border-black w-full">
+              Navigatiemenu
+            </div>
+            <button
+              id="close-menu-button"
+              class="absolute top-6 right-6 scale-0 transition-transform bg-primary-600 text-2xl rounded-full h-14 w-14 text-white flex items-center justify-center duration-500 ease-in-out"
+            >
+              <i class="ph ph-x"></i>
+            </button>
+          </div>
+          <Navigation header={true} />
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="text-caption--xs pb-3 border-b border-black w-full">
+            Mijn socials
+          </div>
+          <div class="flex flex-wrap gap-6 items-center">
+            <MySocialLink platform="linkedin" username="tomgraafmans" />
+            <MySocialLink platform="dribbble" username="varvino" />
+            <MySocialLink platform="behance" username="tomgraafmans" />
+            <MySocialLink platform="github" username="xarxino" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      id="open-menu-text"
+      class="text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:bg-black hover:before:bg-primary-600 before:w-1.5 before:h-1.5 before:rounded-full before:top-1.5"
+    >
+      Menu
+    </button>
+
+    <OpenMenuButton />
+
+    <div
+      id="menu-overlay"
+      class="fixed bg-black/50 z-30 opacity-0 transition-all duration-500 ease-in-out"
+    >
+    </div>
+  </div>
+</header>
+
+<script>
+  const menu = document.querySelector("#menu") as HTMLDivElement;
+  const openMenuButton = document.querySelector(
+    "#open-menu-button"
+  ) as HTMLButtonElement;
+  const openMenuText = document.querySelector(
+    "#open-menu-text"
+  ) as HTMLDivElement;
+  const closeMenuButton = document.querySelector(
+    "#close-menu-button"
+  ) as HTMLButtonElement;
+  const menuOverlay = document.querySelector("#menu-overlay") as HTMLDivElement;
+
+  function openMenu() {
+    menuOverlay.classList.toggle("inset-0");
+    menuOverlay.classList.toggle("opacity-0");
+    menuOverlay.classList.toggle("opacity-100");
+    setTimeout(() => {
+      menu.classList.toggle("-left-full");
+      menu.classList.toggle("left-0");
+    }, 300);
+    setTimeout(() => {
+      closeMenuButton.classList.toggle("scale-0");
+    }, 400);
+  }
+
+  function closeMenu() {
+    closeMenuButton.classList.toggle("scale-0");
+
+    menu.classList.toggle("-left-full");
+    menu.classList.toggle("left-0");
+
+    setTimeout(() => {
+      menuOverlay.classList.toggle("opacity-100");
+      menuOverlay.classList.toggle("opacity-0");
+
+      setTimeout(() => {
+        menuOverlay.classList.toggle("inset-0");
+      }, 500);
+    }, 300);
+  }
+
+  function init() {
+    openMenuText.addEventListener("click", () => {
+      openMenu();
+    });
+
+    openMenuButton.addEventListener("click", () => {
+      openMenu();
+    });
+
+    closeMenuButton.addEventListener("click", () => {
+      closeMenu();
+    });
+  }
+
+  init();
+</script>

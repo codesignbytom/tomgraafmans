@@ -1,0 +1,30 @@
+---
+import Tag from "../atoms/Tag.astro";
+const { thumbnailSrc, title, tagline, url, tags } = Astro.props;
+
+const uniqueTags = Array.from(
+  new Set(tags.map((tag: string) => tag.toLowerCase()))
+);
+---
+
+<div class="flex flex-col gap-6">
+  <a href={url}>
+    <img
+      src={thumbnailSrc}
+      alt=`Thumbnail van ${title}`
+      class="aspect-square sm:aspect-video object-cover"
+      loading="lazy"
+    />
+  </a>
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1 items-start">
+      <a href={url} class="hover:text-primary-600 transition-colors">
+        <h3 class="text-h2">{title}</h3>
+      </a>
+      <p class="text-h6 font-light opacity-75 relative -z-10">{tagline}</p>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      {uniqueTags.map((tag) => <Tag key={tag} tagTitle={tag} />)}
+    </div>
+  </div>
+</div>
