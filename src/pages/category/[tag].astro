@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import ProjectPreview from "../../components/molecules/ProjectPreview.astro";
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection("portfolio");
+
+  const uniqueTags = [
+    ...new Set(allProjects.flatMap((project) => project.data.tags)),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredProjects = allProjects.filter((project) =>
+      project.data.tags?.includes(tag)
+    );
+
+    return {
+      params: { tag },
+      props: { projects: filteredProjects },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { projects } = Astro.props;
+---
+
+<DefaultLayout pageTitle={tag}>
+  <div class="container flex flex-col gap-6 pt-4 pb-8">
+    <div class="border-t border-black pt-2">
+      <h1 class="capitalize-first-letter">{tag}</h1>
+    </div>
+    <div class="flex flex-col gap-8">
+      {
+        projects.map((project) => (
+          <>
+            <ProjectPreview
+              project={project}
+              url={`/portfolio/${project.slug}/`}
+              title={project.data.title}
+              thumbnailSrc={project.data.thumbnail}
+              tagline={project.data.tagline}
+              tags={project.data.tags}
+            />
+          </>
+        ))
+      }
+    </div>
+  </div>
+</DefaultLayout>

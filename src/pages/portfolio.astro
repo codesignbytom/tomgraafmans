@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import ProjectPreview from "../components/molecules/ProjectPreview.astro";
+
+const allProjects = await getCollection("portfolio");
+---
+
+<DefaultLayout pageTitle="Portfolio">
+  <div class="container flex flex-col gap-6 pt-4 pb-8">
+    <div class="border-t border-black pt-2">
+      <h1>Portfolio</h1>
+    </div>
+    <div class="flex flex-col gap-8">
+      {
+        allProjects
+          .slice(1, 13)
+          .map((project: any) => (
+            <ProjectPreview
+              key={project.url}
+              project={project}
+              url={`/portfolio/${project.slug}/`}
+              title={project.data.title}
+              thumbnailSrc={project.data.thumbnail}
+              tagline={project.data.tagline}
+              tags={project.data.tags}
+            />
+          ))
+      }
+    </div>
+  </div>
+</DefaultLayout>

@@ -1,0 +1,146 @@
+---
+import { getCollection } from "astro:content";
+
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import ProjectPreview from "../components/molecules/ProjectPreview.astro";
+import Hero from "../components/organisms/Hero.astro";
+import Button from "../components/atoms/Button.svelte";
+import SkillPreview from "../components/molecules/SkillPreview.astro";
+import Testimonial from "../components/molecules/Testimonial.astro";
+
+const allProjects = await getCollection("portfolio");
+const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
+---
+
+<DefaultLayout>
+  <Hero
+    url={`/portfolio/${firstProject.slug}/`}
+    title={firstProject.data.title}
+    tagline={firstProject.data.tagline}
+    image={firstProject?.data.thumbnail}
+  />
+  <section id="introduction" class="py-8">
+    <div class="container flex flex-col gap-4">
+      <h3 class="order-2">
+        Ik ben Tom, een developer & designer,
+        <span class="text-primary-600 underline">gespecialiseerd</span> in het <span
+          class="text-primary-600 underline">maken</span
+        > van frisse en <span class="text-primary-600 underline"
+          >gebruiksvriendelijke</span
+        >
+         websites & apps.
+      </h3>
+      <h4 class="text-h5 font-sans order-1">Mijn verhaal</h4>
+    </div>
+  </section>
+  <section id="projects" class="pb-8">
+    <div class="container flex flex-col gap-4">
+      <div class="border-t border-black pt-2">
+        <h2 class="text-h1">Kiezelwerk</h2>
+      </div>
+      <div class="flex flex-col gap-8">
+        {
+          allProjects
+            .slice(1, 7)
+            .map((project: any) => (
+              <ProjectPreview
+                key={project.url}
+                project={project}
+                url={`/portfolio/${project.slug}/`}
+                title={project.data.title}
+                thumbnailSrc={project.data.thumbnail}
+                tagline={project.data.tagline}
+                tags={project.data.tags}
+              />
+            ))
+        }
+      </div>
+    </div>
+    <div class="container flex flex-col gap-4 pt-4 mt-8 border-t border-black">
+      <h5 class="text-h3">Snakt dit naar meer?</h5>
+      <Button
+        url="/portfolio/"
+        className="button--primary"
+        title="Bekijk alle cases"
+        icon="arrow-line-up-right"
+      />
+    </div>
+  </section>
+  <section id="my-skills" class="bg-neutral-100 py-8">
+    <div class="container">
+      <div class="flex flex-col gap-8">
+        <h2 class="text-h1">Wat ik kan & doe</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <SkillPreview
+            title="Development"
+            description="Voor al mijn projecten gebruik ik een moderne combinatie van tools en technieken, dit komt de kwaliteit en snelheid van uw website ten goede."
+            icon="code"
+          />
+          <SkillPreview
+            title="Digital Design"
+            description="Bij het ontwerpen van een website of app houd ik rekening met de gebruiker, het doel en de context. Zo creëer ik een gebruiksvriendelijke ervaring voor zowel u en uw klanten."
+            icon="magic-wand"
+          />
+          <SkillPreview
+            title="Interaction Design"
+            description="Een website moet niet alleen mooi zijn, maar ook gebruiksvriendelijk. Ik zorg ervoor dat uw website of app intuïtief werkt en een plezier is om te gebruiken."
+            icon="cursor-click"
+          />
+          <SkillPreview
+            title="Illustraties"
+            description="Of u nu een vleugje creativiteit wilt toevoegen aan uw website, app of marketingmateriaal, ik sta klaar om unieke illustraties te maken die uw merk laten stralen."
+            icon="pencil-circle"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="tesimonials" class="py-8">
+    <div class="container flex flex-col gap-8">
+      <Testimonial
+        quoteTitle="Creatieve designer met verassende concepten."
+        quote="Tom is creatieve designer die altijd met verrassende concepten komt. Hij is kundig op het gebied van wireframing en kan een briefing vlot omzetten naar een professioneel design."
+        referrerName="Ron Kesting"
+        referrerPosition="Co-founder"
+        referrerPicture="/static/img/clients/enflow/pp-ron.png"
+        company="Enflow"
+        companyUrl="https://enflow.nl/"
+      />
+      <Testimonial
+        quoteTitle="Tom ontwerpt creatief, werkt gestructureerd en voldoet aan gestelde eisen."
+        quote="Creatief in zijn designs en werkt binnen zijn design tools op een zeer gestructureerde manier. Tom komt met meerdere uiteenlopende voorbeelden die vaak allen voldoen aan de gestelde eisen."
+        referrerName="Michel Bardelmeijer"
+        referrerPosition="Co-founder"
+        referrerPicture="/static/img/clients/enflow/pp-michel.png"
+        company="Enflow"
+        companyUrl="https://enflow.nl/"
+      />
+    </div>
+  </section>
+  <section id="cta" class="bg-primary-600 text-white py-8">
+    <div class="container flex flex-col gap-8">
+      <div class="flex flex-col gap-4">
+        <h4 class="text-h2">Heb ik uw interesse kunnen wekken in mijn werk?</h4>
+        <p>
+          Neem vandaag nog contact met me op om te ontdekken hoe we kunnen
+          samenwerken. Of download mijn CV.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <Button
+          url="/contact/"
+          className="button--white"
+          title="Neem contact op"
+          icon="paper-plane-tilt"
+        />
+        <Button
+          url="https://read.cv/tomgraafmans"
+          className="button-outlined--white"
+          title="Bekijk CV"
+          icon="read-cv-logo"
+          external={true}
+        />
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
