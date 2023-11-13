@@ -1,11 +1,11 @@
 <div
   id="open-menu-button-wrapper"
-  class="fixed top-0 left-0 z-10 w-full pointer-events-none"
+  class="fixed top-0 left-0 z-0 w-full pointer-events-none"
 >
   <div class="container flex justify-end py-4">
     <button
       id="open-menu-button"
-      class="flex items-center justify-center text-2xl text-white transition-all duration-300 ease-in-out scale-0 rounded-full hover:bg-primary-700 bg-primary-600 h-14 w-14"
+      class="flex items-center justify-center text-2xl text-white transition-all duration-300 ease-in-out scale-0 rounded-full hover:bg-primary-700 bg-primary-600 h-14 w-14 pointer-events-auto"
     >
       <i class="ph ph-list"></i>
     </button>
@@ -29,10 +29,8 @@
         sessionStorage.getItem("scrolledPastThreshold") === "true";
       if (sessionState && window.scrollY > scrollThreshold) {
         openMenuButton.classList.add("scale-100");
-        openMenuButtonWrapper.classList.remove("pointer-events-none");
       } else {
         openMenuButton.classList.remove("scale-100");
-        openMenuButtonWrapper.classList.add("pointer-events-none");
         sessionStorage.removeItem("scrolledPastThreshold");
       }
     };
@@ -44,11 +42,9 @@
         currentScrollTop > scrollThreshold
       ) {
         openMenuButton.classList.add("scale-100");
-        openMenuButtonWrapper.classList.remove("pointer-events-none");
         sessionStorage.setItem("scrolledPastThreshold", "true");
       } else if (currentScrollTop < lastScrollTop) {
         openMenuButton.classList.remove("scale-100");
-        openMenuButtonWrapper.classList.add("pointer-events-none");
         sessionStorage.removeItem("scrolledPastThreshold");
       }
       lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
