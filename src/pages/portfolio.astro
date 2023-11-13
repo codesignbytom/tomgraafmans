@@ -9,9 +9,10 @@ const allProjects = await getCollection("portfolio");
 
 <DefaultLayout pageTitle="Portfolio">
   <div class="container flex flex-col gap-6 pt-4 pb-8">
-    <div class="border-t border-black pt-2">
-      <h1>Portfolio</h1>
-    </div>
+    <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+      Van uiteenlopende projecten voor vooruitstrevende klanten in verschillende
+      branches tot het kweken van creatieve samenwerkingen.
+    </h1>
     <div class="flex flex-col gap-8">
       {
         allProjects
