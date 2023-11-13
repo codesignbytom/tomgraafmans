@@ -10,6 +10,5 @@ content: >-
   **Finding the Seoul is een blog die je meeneemt op een ontdekkingsreis door
   Seoul, Zuid-Korea.**
 
-
   In plaats van de gebruikelijke toeristische plekken, duikt de blog in de verborgen schatten en opmerkelijke zeldzaamheden van de stad, waarbij zowel eeuwenoude tradities als moderne wonderen worden verkend.
 ---
