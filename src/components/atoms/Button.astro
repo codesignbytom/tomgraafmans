@@ -1,0 +1,8 @@
+---
+const { url, className, title, icon, external = false } = Astro.props;
+---
+
+<a href={url} class={className} target={external ? "_blank" : "_self"}>
+  <span>{title}</span>
+  <i class={`ph ph-${icon} text-2xl`}></i>
+</a>
