@@ -12,16 +12,16 @@ const uniqueTags = Array.from(
     <img
       src={thumbnailSrc}
       alt=`Thumbnail van ${title}`
-      class="aspect-square sm:aspect-video object-cover"
+      class="object-cover aspect-square sm:aspect-video"
       loading="lazy"
     />
   </a>
   <div class="flex flex-col gap-4">
-    <div class="flex flex-col gap-1 items-start">
-      <a href={url} class="hover:text-primary-600 transition-colors">
+    <div class="flex flex-col items-start gap-1">
+      <a href={url} class="transition-colors hover:text-primary-600">
         <h3 class="text-3xl">{title}</h3>
       </a>
-      <p class="text-lg opacity-75">{tagline}</p>
+      <p class="opacity-75 xl:text-lg">{tagline}</p>
     </div>
     <div class="flex flex-wrap gap-2">
       {uniqueTags.map((tag) => <Tag key={tag} tagTitle={tag} />)}
