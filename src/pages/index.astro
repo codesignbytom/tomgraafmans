@@ -19,9 +19,15 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
     tagline={firstProject.data.tagline}
     image={firstProject?.data.thumbnail}
   />
-  <section id="introduction" class="py-8">
-    <div class="container flex flex-col gap-4">
-      <h3 class="order-2 text-3xl">
+
+  <section
+    id="introduction"
+    class="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28"
+  >
+    <div
+      class="container flex flex-col md:flex-row gap-4 md:gap-8 lg:gap-12 xl:gap-16"
+    >
+      <h3 class="order-2 text-3xl md:text-4xl lg:text-5xl">
         Ik ben Tom, een developer & designer,
         <span class="underline text-primary-600">gespecialiseerd</span> in het <span
           class="underline text-primary-600">maken</span
@@ -30,12 +36,17 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
         >
          websites & apps.
       </h3>
-      <h4 class="order-1 text-xl font-body">Mijn verhaal</h4>
+      <h4 class="order-1 text-xl lg:text-2xl font-body md:whitespace-nowrap">
+        Mijn verhaal
+      </h4>
     </div>
   </section>
-  <section id="projects" class="pb-8">
-    <div class="container flex flex-col gap-4">
-      <div class="pt-2 border-t border-black">
+
+  <section id="projects" class="pb-8 md:pb-16 xl:pb-24 2xl:pb-28">
+    <div
+      class="container flex flex-col gap-8 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
+    >
+      <div class="pt-4 sm:pt-5 md:pt-6 border-t border-black">
         <h2 class="text-h1">Kiezelwerk</h2>
       </div>
       <div
@@ -58,8 +69,10 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
         }
       </div>
     </div>
-    <div class="container flex flex-col gap-4 pt-4 mt-8 border-t border-black">
-      <h5 class="text-h3">Snakt dit naar meer?</h5>
+    <div
+      class="container flex flex-col md:flex-row md:justify-between md:items-center gap-4 pt-4 lg:pt-6 mt-8 md:mt-12 lg:mt-20 xl:mt-24 2xl:mt-28 border-t border-black"
+    >
+      <h5 class="text-3xl lg:text-4xl 2xl:text-5xl">Snakt dit naar meer?</h5>
       <Button
         url="/portfolio/"
         className="button--primary"
@@ -68,11 +81,14 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
       />
     </div>
   </section>
-  <section id="my-skills" class="py-8 bg-neutral-100">
+  <section
+    id="my-skills"
+    class="py-8 md:py-16 xl:py-24 2xl:py-28 bg-neutral-100"
+  >
     <div class="container">
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-8 md:gap-16 xl:gap-24 2xl:gap-28">
         <h2 class="text-h1">Wat ik kan & doe</h2>
-        <div class="grid gap-6 sm:grid-cols-2">
+        <div class="grid gap-6 md:gap-16 xl:gap-24 2xl:gap-28 sm:grid-cols-2">
           <SkillPreview
             title="Development"
             description="Voor al mijn projecten gebruik ik een moderne combinatie van tools en technieken, dit komt de kwaliteit en snelheid van uw website ten goede."
