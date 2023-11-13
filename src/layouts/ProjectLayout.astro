@@ -15,7 +15,7 @@ const uniqueTags = Array.from(
   <section>
     <img src={frontmatter.thumbnail} alt={frontmatter.title} />
     <div class="container flex flex-col gap-6 py-8">
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-col gap-4">
         <h1>{frontmatter.title}</h1>
         <div class="flex flex-wrap gap-2">
           {uniqueTags.map((tag) => <Tag key={tag} tagTitle={tag} />)}
@@ -25,10 +25,13 @@ const uniqueTags = Array.from(
     </div>
   </section>
   <section id="next-case">
-    <div class="container flex flex-col gap-6 py-8">
-      <div class="pt-2 border-t border-black dark:border-white">
+    <div class="flex flex-col">
+      <div class="container pt-2 pb-8 border-t border-black dark:border-white">
         <h2>Volgende case</h2>
       </div>
+      <a href="#">
+        <img src="https://via.placeholder.com/1920x1080" alt="Volgende case" />
+      </a>
     </div>
   </section>
 </DefaultLayout>
