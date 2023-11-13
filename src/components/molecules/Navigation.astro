@@ -2,9 +2,10 @@
 const { header } = Astro.props;
 const pathName = Astro.url.pathname;
 const currentPageClasses =
-  "relative flex items-center after:absolute after:right-0 after:bg-primary-600 after:w-2 after:h-2 after:rounded-sm after:animate-spin_slow after:ml-4";
-const notCurrentPageClasses =
-  "relative hover:text-primary-600 flex items-center after:transition-all after:absolute after:right-0 after:ml-4 after:h-2 after:w-2 after:scale-0 after:rounded-sm after:bg-black/20";
+  "relative flex items-center after:absolute after:right-0 after:bg-primary-600 after:w-2 after:h-2 after:rounded-sm after:animate-spin_slow after:ml-4 hover:text-primary-600";
+const notCurrentPageClasses = `relative hover:text-primary-600 flex items-center after:transition-all after:absolute after:right-0 after:ml-4 after:h-2 after:w-2 after:scale-0 after:rounded-sm ${
+  header === true ? "after:bg-black/30" : "after:bg-white/30"
+}`;
 ---
 
 <nav
