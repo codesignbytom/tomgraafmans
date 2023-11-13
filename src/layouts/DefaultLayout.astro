@@ -12,18 +12,26 @@ import "@phosphor-icons/web/fill";
 
 const description = "Developer & Designer";
 const permalink = new URL("./", import.meta.url).toString();
-const { pageTitle = description, colorMode } = Astro.props;
+const { pageTitle = description, colorMode = "light" } = Astro.props;
 let title = `Tom Graafmans • ${pageTitle}`;
+
+function setColorMode(colorMode: string) {
+  return colorMode;
+}
 ---
 
 <!doctype html>
-<html lang="en" class=`${colorMode === "dark" ? "bg-black text-white" : ""}`>
+<html
+  lang="en"
+  class={`${setColorMode(colorMode) === "dark" ? "bg-black text-white" : ""}`}
+>
   <Head {title} {description} {permalink} />
   <body>
-    <Header />
+    <Header colorMode={colorMode} />
     <main>
       <slot />
     </main>
+    <Footer />
     <script>
       import Lenis from "@studio-freight/lenis";
       const lenis = new Lenis();
@@ -35,6 +43,5 @@ let title = `Tom Graafmans • ${pageTitle}`;
 
       requestAnimationFrame(raf);
     </script>
-    <Footer />
   </body>
 </html>
