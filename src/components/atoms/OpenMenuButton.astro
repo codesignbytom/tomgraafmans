@@ -1,16 +1,26 @@
-<button
-  id="open-menu-button"
-  class="fixed z-30 flex items-center justify-center text-2xl text-white transition-all duration-300 ease-in-out scale-0 rounded-full top-6 right-6 hover:bg-primary-700 bg-primary-600 h-14 w-14"
+<div
+  id="open-menu-button-wrapper"
+  class="fixed top-0 left-0 z-10 w-full pointer-events-none"
 >
-  <i class="ph ph-list"></i>
-</button>
+  <div class="container flex justify-end py-4">
+    <button
+      id="open-menu-button"
+      class="flex items-center justify-center text-2xl text-white transition-all duration-300 ease-in-out scale-0 rounded-full hover:bg-primary-700 bg-primary-600 h-14 w-14"
+    >
+      <i class="ph ph-list"></i>
+    </button>
+  </div>
+</div>
 
 <script>
   const openMenuButton = document.querySelector(
     "#open-menu-button"
   ) as HTMLButtonElement;
+  const openMenuButtonWrapper = document.querySelector(
+    "#open-menu-button-wrapper"
+  ) as HTMLDivElement;
 
-  function scaleOpenMenuButtonOnScroll() {
+  const scaleOpenMenuButtonOnScroll = () => {
     let lastScrollTop = 0;
     const scrollThreshold = window.innerHeight * 0.3;
 
@@ -19,8 +29,10 @@
         sessionStorage.getItem("scrolledPastThreshold") === "true";
       if (sessionState && window.scrollY > scrollThreshold) {
         openMenuButton.classList.add("scale-100");
+        openMenuButtonWrapper.classList.remove("pointer-events-none");
       } else {
         openMenuButton.classList.remove("scale-100");
+        openMenuButtonWrapper.classList.add("pointer-events-none");
         sessionStorage.removeItem("scrolledPastThreshold");
       }
     };
@@ -32,9 +44,11 @@
         currentScrollTop > scrollThreshold
       ) {
         openMenuButton.classList.add("scale-100");
+        openMenuButtonWrapper.classList.remove("pointer-events-none");
         sessionStorage.setItem("scrolledPastThreshold", "true");
       } else if (currentScrollTop < lastScrollTop) {
         openMenuButton.classList.remove("scale-100");
+        openMenuButtonWrapper.classList.add("pointer-events-none");
         sessionStorage.removeItem("scrolledPastThreshold");
       }
       lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
@@ -42,7 +56,7 @@
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("load", handlePageLoad);
-  }
+  };
 
   scaleOpenMenuButtonOnScroll();
 </script>

@@ -50,18 +50,20 @@ const { colorMode = "dark" } = Astro.props;
       Menu
     </button>
 
-    <OpenMenuButton />
-
     <div
       id="menu-overlay"
       class="fixed z-30 transition-all duration-500 ease-in-out opacity-0 bg-black/50"
     >
     </div>
   </div>
+  <OpenMenuButton />
 </header>
 
 <script>
   const menu = document.querySelector("#menu") as HTMLDivElement;
+  const openMenuButtonWrapper = document.querySelector(
+    "#open-menu-button-wrapper"
+  ) as HTMLDivElement;
   const openMenuButton = document.querySelector(
     "#open-menu-button"
   ) as HTMLButtonElement;
