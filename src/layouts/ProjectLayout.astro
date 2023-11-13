@@ -17,7 +17,6 @@ const filteredProjects = allProjects.filter(
   (project) => project.slug !== frontmatter.slug
 );
 
-// Select a random project that's not the current one
 const randomProject =
   filteredProjects[Math.floor(Math.random() * filteredProjects.length)];
 ---
