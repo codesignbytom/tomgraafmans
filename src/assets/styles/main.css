@@ -90,3 +90,27 @@ h6,
 .capitalize-first-letter::first-letter {
   @apply capitalize;
 }
+
+/* Apply column spans for a 2-column grid layout */
+.project-preview {
+  @apply md:col-span-6;
+}
+
+/* Every first item should have minimum heights */
+.project-preview:nth-of-type(3n + 1) img {
+  @apply md:min-h-[40rem] lg:min-h-[60rem] xl:min-h-[70rem];
+}
+
+/* Every second item should be a square image */
+.project-preview:nth-of-type(3n + 2) img {
+  @apply md:aspect-square;
+}
+
+/* Every third item spans 12 columns and its image should be aspect-video */
+.project-preview:nth-of-type(3n + 3) {
+  @apply md:col-span-12;
+}
+
+.project-preview:nth-of-type(3n + 3) img {
+  @apply aspect-video;
+}
