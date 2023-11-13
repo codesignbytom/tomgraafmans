@@ -2,11 +2,11 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    fontFamily: {
-      sans: ["Poppins", "sans-serif"],
-      serif: ["EB Garamond", "serif"],
-    },
     extend: {
+      fontFamily: {
+        body: ["Satoshi", "sans-serif"],
+        heading: ["EB Garamond", "serif"],
+      },
       colors: {
         primary: {
           50: "#edfcf5",

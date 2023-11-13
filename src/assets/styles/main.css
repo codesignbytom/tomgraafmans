@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=eb-garamond:500,600|poppins:200,300,400,500,600,700);
+@import url(https://fonts.bunny.net/css?family=eb-garamond:500,600);
 
 body {
   font-size: clamp(1rem, 1vw, 1.125rem);
@@ -12,7 +12,7 @@ h4,
 h5,
 h6 {
   letter-spacing: clamp(-0.025em, -0.05vw, -0.05em);
-  @apply font-medium font-serif leading-tight;
+  @apply font-medium font-heading leading-tight;
 }
 
 h1,
