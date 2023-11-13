@@ -10,5 +10,6 @@ tags:
 content: >-
   **Voor PagePanda heb ik een dynamische one-pager gecreëerd.**
 
+
   Het betreft een denkbeeldige app die gebruikers moeiteloos laat landingspagina's bouwen. Met een intuïtieve drag-and-drop interface staat het design bol van potentie, waarbij het de eenvoud en flexibiliteit van de app accentueert.
 ---

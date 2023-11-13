@@ -10,5 +10,6 @@ content: >-
   **In opdracht van Enflow heb ik voor Beweegpartner een nieuwe landingspagina
   ontworpen.**
 
+
   Beweegpartner helpt scholen om het sportleraren-tekort op te vangen, [Enflow](https://www.enflow.nl) heeft mij gevraagd om voor hun meerdere landingspagina's te maken welke de visie en nieuwe branding van Beweegpartner het beste naar voren kunnen brengen.
 ---
