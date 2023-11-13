@@ -9,9 +9,11 @@ const contentHtml = marked(frontmatter.content);
 const uniqueTags = Array.from(
   new Set(frontmatter.tags.map((tag: string) => tag.toLowerCase()))
 );
+
+const colorMode = "dark";
 ---
 
-<DefaultLayout pageTitle={frontmatter.title} pageType="project">
+<DefaultLayout pageTitle={frontmatter.title} colorMode="dark">
   <section>
     <img src={frontmatter.thumbnail} alt={frontmatter.title} />
     <div class="container flex flex-col gap-6 py-8">
@@ -26,7 +28,9 @@ const uniqueTags = Array.from(
   </section>
   <section id="next-case">
     <div class="flex flex-col">
-      <div class="container pt-2 pb-8 border-t border-black dark:border-white">
+      <div
+        class=`container pt-2 pb-8 border-t border-black ${colorMode === "dark" ? "border-white" : ""}`
+      >
         <h2>Volgende case</h2>
       </div>
       <a href="#">

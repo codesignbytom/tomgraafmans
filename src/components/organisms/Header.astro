@@ -3,6 +3,8 @@ import Navigation from "../molecules/Navigation.astro";
 import Logo from "../atoms/Logo.astro";
 import MySocialLink from "../atoms/MySocialLink.astro";
 import OpenMenuButton from "../atoms/OpenMenuButton.astro";
+
+const colorMode = "dark";
 ---
 
 <header class="py-4">
@@ -43,7 +45,7 @@ import OpenMenuButton from "../atoms/OpenMenuButton.astro";
 
     <button
       id="open-menu-text"
-      class="text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:bg-black dark:before:bg-white hover:before:bg-primary-600 before:w-1.5 before:h-1.5 before:rounded-full before:top-1.5"
+      class=`text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:w-1.5 before:h-1.5 before:rounded-full before:top-1.5 ${colorMode === "dark" ? "before:bg-white" : "before:bg-black hover:before:bg-primary-600"}`
     >
       Menu
     </button>

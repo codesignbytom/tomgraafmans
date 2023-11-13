@@ -12,12 +12,12 @@ import "@phosphor-icons/web/fill";
 
 const description = "Developer & Designer";
 const permalink = new URL("./", import.meta.url).toString();
-const { pageTitle = description, pageType } = Astro.props;
+const { pageTitle = description, colorMode } = Astro.props;
 let title = `Tom Graafmans • ${pageTitle}`;
 ---
 
 <!doctype html>
-<html lang="en" class=`${pageType === "project" ? "dark:bg-black dark:text-white" : ""}`>
+<html lang="en" class=`${colorMode === "dark" ? "bg-black text-white" : ""}`>
   <Head {title} {description} {permalink} />
   <body>
     <Header />
