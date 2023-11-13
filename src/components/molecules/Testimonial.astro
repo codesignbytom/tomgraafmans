@@ -11,7 +11,7 @@ const {
 ---
 
 <div class="flex flex-col gap-6">
-  <h4 class="text-h3">{quoteTitle}</h4>
+  <h4 class="text-3xl lg:text-4xl">{quoteTitle}</h4>
   <blockquote>
     {quote}
   </blockquote>
@@ -22,16 +22,16 @@ const {
           <img
             src={referrerPicture}
             alt={referrerName}
-            class="w-16 h-16 rounded-full hover:rotate-12 transition-transform duration-700 ease-in-out"
+            class="w-16 h-16 transition-transform duration-700 ease-in-out rounded-full hover:rotate-12"
             loading="lazy"
           />
         )
       }
       <div class="flex flex-col gap-0.5">
-        <cite class="font-semibold not-italic">{referrerName}</cite>
+        <cite class="not-italic font-semibold">{referrerName}</cite>
         {
           company && companyUrl && (
-            <div class="text-sm opacity-75 flex gap-1">
+            <div class="flex gap-1 text-sm opacity-75">
               {referrerPosition}
               <span>bij</span>
               <a
