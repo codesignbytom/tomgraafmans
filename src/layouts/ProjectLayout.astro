@@ -1,4 +1,6 @@
 ---
+import { getCollection } from "astro:content";
+
 import { marked } from "marked";
 import DefaultLayout from "./DefaultLayout.astro";
 import Tag from "../../src/components/atoms/Tag.astro";
@@ -9,6 +11,15 @@ const contentHtml = marked(frontmatter.content);
 const uniqueTags = Array.from(
   new Set(frontmatter.tags.map((tag: string) => tag.toLowerCase()))
 );
+
+const allProjects = await getCollection("portfolio");
+const filteredProjects = allProjects.filter(
+  (project) => project.slug !== frontmatter.slug
+);
+
+// Select a random project that's not the current one
+const randomProject =
+  filteredProjects[Math.floor(Math.random() * filteredProjects.length)];
 ---
 
 <DefaultLayout pageTitle={frontmatter.title} colorMode={colorMode}>
@@ -41,12 +52,19 @@ const uniqueTags = Array.from(
       >
         <h2>Volgende case</h2>
       </div>
-      <a href="#">
-        <img
-          class="min-h-[50vh] object-cover"
-          src="https://via.placeholder.com/1920x1080"
-          alt="Volgende case"
-        />
+      <a
+        href={`/portfolio/${randomProject.slug}`}
+        style={`background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.80) 100%), url('${randomProject.data.thumbnail}') no-repeat center/cover;`}
+        class="min-h-[50vh] flex items-end py-8"
+      >
+        <div class="container flex flex-col gap-1 text-white">
+          <h3 class="text-h5 font-body">
+            {randomProject.data.title ?? "Project title"}
+          </h3>
+          <h1 class="text-h2">
+            {randomProject.data.tagline ?? "Project tagline"}
+          </h1>
+        </div>
       </a>
     </div>
   </section>
