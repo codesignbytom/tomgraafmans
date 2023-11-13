@@ -1,5 +1,11 @@
 @import url(https://fonts.bunny.net/css?family=eb-garamond:500,600);
 
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/satoshi.ttf") format("truetype");
+  font-weight: 100 900;
+}
+
 body {
   font-size: clamp(1rem, 1vw, 1.125rem);
   @apply font-normal leading-relaxed;
@@ -12,7 +18,7 @@ h4,
 h5,
 h6 {
   letter-spacing: clamp(-0.025em, -0.05vw, -0.05em);
-  @apply font-medium font-heading leading-tight;
+  @apply font-medium leading-tight font-heading;
 }
 
 h1,
@@ -47,38 +53,38 @@ h6,
 
 .text-caption--xs {
   font-size: clamp(0.625rem, 1vw, 0.75rem);
-  @apply font-semibold uppercase tracking-widest;
+  @apply font-semibold tracking-widest uppercase;
 }
 
 .text-caption--sm {
   font-size: clamp(0.75rem, 1vw, 0.875rem);
-  @apply font-semibold uppercase tracking-widest;
+  @apply font-semibold tracking-widest uppercase;
 }
 
 .text-caption--md {
   font-size: clamp(0.875rem, 1vw, 1rem);
-  @apply font-semibold uppercase tracking-widest;
+  @apply font-semibold tracking-widest uppercase;
 }
 
 .button {
   font-size: clamp(1rem, 1vw, 1.25rem);
-  @apply font-medium leading-none py-4 px-6 transition-colors duration-200 ease-in-out flex items-center justify-center gap-2;
+  @apply flex items-center justify-center gap-2 px-6 py-4 font-medium leading-none transition-colors duration-200 ease-in-out;
 }
 
 .button--primary {
-  @apply button bg-primary-600 text-white hover:bg-black;
+  @apply text-white button bg-primary-600 hover:bg-black;
 }
 
 .button--white {
-  @apply button bg-white text-black hover:bg-black hover:text-white;
+  @apply text-black bg-white button hover:bg-black hover:text-white;
 }
 
 .button-outlined {
-  @apply button border border-black text-black hover:bg-black hover:text-white;
+  @apply text-black border border-black button hover:bg-black hover:text-white;
 }
 
 .button-outlined--white {
-  @apply button border border-white text-white hover:bg-black hover:text-white hover:border-transparent;
+  @apply text-white border border-white button hover:bg-black hover:text-white hover:border-transparent;
 }
 
 .capitalize-first-letter::first-letter {
