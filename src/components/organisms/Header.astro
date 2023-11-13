@@ -10,17 +10,17 @@ import OpenMenuButton from "../atoms/OpenMenuButton.astro";
     <Logo />
     <div
       id="menu"
-      class="fixed top-0 -left-full leading-none bg-white w-full h-full z-50 py-4 transition-all duration-500 ease-in-out max-w-xl"
+      class="fixed top-0 z-50 w-full h-full max-w-xl py-4 leading-none text-black transition-all duration-500 ease-in-out bg-white -left-full"
     >
-      <div class="container flex flex-col gap-12 py-28 justify-between h-full">
+      <div class="container flex flex-col justify-between h-full gap-12 py-28">
         <div class="flex flex-col gap-12">
-          <div class="flex gap-4 items-center justify-between">
-            <div class="text-caption--xs pb-3 border-b border-black w-full">
+          <div class="flex items-center justify-between gap-4">
+            <div class="w-full pb-3 border-b border-black text-caption--xs">
               Navigatiemenu
             </div>
             <button
               id="close-menu-button"
-              class="absolute top-6 right-6 scale-0 transition-transform bg-primary-600 text-2xl rounded-full h-14 w-14 text-white flex items-center justify-center duration-500 ease-in-out"
+              class="absolute flex items-center justify-center text-2xl text-white transition-transform duration-500 ease-in-out scale-0 rounded-full top-6 right-6 bg-primary-600 h-14 w-14"
             >
               <i class="ph ph-x"></i>
             </button>
@@ -28,10 +28,10 @@ import OpenMenuButton from "../atoms/OpenMenuButton.astro";
           <Navigation header={true} />
         </div>
         <div class="flex flex-col gap-6">
-          <div class="text-caption--xs pb-3 border-b border-black w-full">
+          <div class="w-full pb-3 border-b border-black text-caption--xs">
             Mijn socials
           </div>
-          <div class="flex flex-wrap gap-6 items-center">
+          <div class="flex flex-wrap items-center gap-6">
             <MySocialLink platform="linkedin" username="tomgraafmans" />
             <MySocialLink platform="dribbble" username="varvino" />
             <MySocialLink platform="behance" username="tomgraafmans" />
@@ -43,7 +43,7 @@ import OpenMenuButton from "../atoms/OpenMenuButton.astro";
 
     <button
       id="open-menu-text"
-      class="text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:bg-black hover:before:bg-primary-600 before:w-1.5 before:h-1.5 before:rounded-full before:top-1.5"
+      class="text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:bg-black dark:before:bg-white hover:before:bg-primary-600 before:w-1.5 before:h-1.5 before:rounded-full before:top-1.5"
     >
       Menu
     </button>
@@ -52,7 +52,7 @@ import OpenMenuButton from "../atoms/OpenMenuButton.astro";
 
     <div
       id="menu-overlay"
-      class="fixed bg-black/50 z-30 opacity-0 transition-all duration-500 ease-in-out"
+      class="fixed z-30 transition-all duration-500 ease-in-out opacity-0 bg-black/50"
     >
     </div>
   </div>

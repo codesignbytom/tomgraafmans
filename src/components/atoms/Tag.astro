@@ -3,7 +3,7 @@ const { tagTitle } = Astro.props;
 ---
 
 <a
-  class="border border-black/30 text-black/75 text-sm py-1 px-3 flex items-center justify-center capitalize rounded-sm whitespace-nowrap hover:border-transparent hover:bg-black hover:text-white transition-colors"
+  class="flex items-center justify-center px-3 py-1 text-sm capitalize transition-colors border rounded-sm border-black/30 dark:border-white/30 dark:text-white/75 text-black/75 whitespace-nowrap hover:border-transparent hover:bg-black dark:hover:bg-white dark:hover:text-black hover:text-white"
   href={`/category/${tagTitle}`}
 >
   {tagTitle}

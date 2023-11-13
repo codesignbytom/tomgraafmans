@@ -9,11 +9,9 @@ const contentHtml = marked(frontmatter.content);
 const uniqueTags = Array.from(
   new Set(frontmatter.tags.map((tag: string) => tag.toLowerCase()))
 );
-
-
 ---
 
-<DefaultLayout>
+<DefaultLayout pageTitle={frontmatter.title} pageType="project">
   <section>
     <img src={frontmatter.thumbnail} alt={frontmatter.title} />
     <div class="container flex flex-col gap-6 py-8">
@@ -28,8 +26,9 @@ const uniqueTags = Array.from(
   </section>
   <section id="next-case">
     <div class="container flex flex-col gap-6 py-8">
-      <h2>Next Case Study</h2>
-
+      <div class="pt-2 border-t border-black dark:border-white">
+        <h2>Volgende case</h2>
+      </div>
     </div>
   </section>
 </DefaultLayout>

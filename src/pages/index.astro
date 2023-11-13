@@ -23,19 +23,19 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
     <div class="container flex flex-col gap-4">
       <h3 class="order-2 text-3xl">
         Ik ben Tom, een developer & designer,
-        <span class="text-primary-600 underline">gespecialiseerd</span> in het <span
-          class="text-primary-600 underline">maken</span
-        > van frisse en <span class="text-primary-600 underline"
+        <span class="underline text-primary-600">gespecialiseerd</span> in het <span
+          class="underline text-primary-600">maken</span
+        > van frisse en <span class="underline text-primary-600"
           >gebruiksvriendelijke</span
         >
          websites & apps.
       </h3>
-      <h4 class="text-xl font-body order-1">Mijn verhaal</h4>
+      <h4 class="order-1 text-xl font-body">Mijn verhaal</h4>
     </div>
   </section>
   <section id="projects" class="pb-8">
     <div class="container flex flex-col gap-4">
-      <div class="border-t border-black pt-2">
+      <div class="pt-2 border-t border-black">
         <h2 class="text-h1">Kiezelwerk</h2>
       </div>
       <div class="flex flex-col gap-8">
@@ -66,11 +66,11 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
       />
     </div>
   </section>
-  <section id="my-skills" class="bg-neutral-100 py-8">
+  <section id="my-skills" class="py-8 bg-neutral-100">
     <div class="container">
       <div class="flex flex-col gap-8">
         <h2 class="text-h1">Wat ik kan & doe</h2>
-        <div class="grid sm:grid-cols-2 gap-6">
+        <div class="grid gap-6 sm:grid-cols-2">
           <SkillPreview
             title="Development"
             description="Voor al mijn projecten gebruik ik een moderne combinatie van tools en technieken, dit komt de kwaliteit en snelheid van uw website ten goede."
@@ -102,7 +102,7 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
         quote="Tom is creatieve designer die altijd met verrassende concepten komt. Hij is kundig op het gebied van wireframing en kan een briefing vlot omzetten naar een professioneel design."
         referrerName="Ron Kesting"
         referrerPosition="Co-founder"
-        referrerPicture="/static/img/clients/enflow/pp-ron.png"
+        referrerPicture="/src/assets/img/clients/enflow/pp-ron.png"
         company="Enflow"
         companyUrl="https://enflow.nl/"
       />
@@ -111,13 +111,13 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
         quote="Creatief in zijn designs en werkt binnen zijn design tools op een zeer gestructureerde manier. Tom komt met meerdere uiteenlopende voorbeelden die vaak allen voldoen aan de gestelde eisen."
         referrerName="Michel Bardelmeijer"
         referrerPosition="Co-founder"
-        referrerPicture="/static/img/clients/enflow/pp-michel.png"
+        referrerPicture="/src/assets/img/clients/enflow/pp-michel.png"
         company="Enflow"
         companyUrl="https://enflow.nl/"
       />
     </div>
   </section>
-  <section id="cta" class="bg-primary-600 text-white py-8">
+  <section id="cta" class="py-8 text-white bg-primary-600">
     <div class="container flex flex-col gap-8">
       <div class="flex flex-col gap-4">
         <h4 class="text-h2">Heb ik uw interesse kunnen wekken in mijn werk?</h4>

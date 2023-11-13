@@ -23,9 +23,9 @@ const { tag } = Astro.params;
 const { projects } = Astro.props;
 ---
 
-<DefaultLayout pageTitle={tag}>
+<DefaultLayout pageTitle={tag.charAt(0).toUpperCase() + tag.slice(1)}>
   <div class="container flex flex-col gap-6 pt-4 pb-8">
-    <div class="border-t border-black pt-2">
+    <div class="pt-2 border-t border-black">
       <h1 class="capitalize-first-letter">{tag}</h1>
     </div>
     <div class="flex flex-col gap-8">
