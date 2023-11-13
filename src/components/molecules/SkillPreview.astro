@@ -2,14 +2,14 @@
 const { title, description, icon } = Astro.props;
 ---
 
-<div class="flex flex-col items-start gap-4">
+<div class="flex flex-col xl:flex-row items-start gap-4 xl:gap-12">
   <div
     class="text-3xl text-white bg-primary-600 h-12 w-12 p-4 flex items-center justify-center rounded-full"
   >
     <i class=`ph ph-${icon} animate-wiggle`></i>
   </div>
-  <div class="flex flex-col gap-2">
-    <h3 class="text-h2">{title}</h3>
-    <p>{description}</p>
+  <div class="flex flex-col gap-2 md:gap-4 lg:gap-6">
+    <h3 class="text-2xl lg:text-3xl font-body">{title}</h3>
+    <p class="xl:text-lg">{description}</p>
   </div>
 </div>
