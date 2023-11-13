@@ -3,19 +3,47 @@ const { header } = Astro.props;
 const pathName = Astro.url.pathname;
 const currentPageClasses =
   "relative flex items-center after:absolute after:right-0 after:bg-primary-600 after:w-2 after:h-2 after:rounded-sm after:animate-spin_slow after:ml-4";
+const notCurrentPageClasses =
+  "relative hover:text-primary-600 flex items-center after:transition-all after:absolute after:right-0 after:ml-4 after:h-2 after:w-2 after:scale-0 after:rounded-sm after:bg-black/20";
 ---
 
 <nav
   class=`flex ${header === true ? " flex-col gap-6 text-3xl" : "flex-col gap-3"}`
 >
-  <a href="/" class={pathName === "/" ? currentPageClasses : null}>Home</a>
   <a
-    href="/portfolio/"
-    class={pathName.includes("/portfolio/") ? currentPageClasses : null}
-    >Portfolio</a
+    id="menu-link"
+    href="/"
+    class={pathName === "/" ? currentPageClasses : notCurrentPageClasses}
+    >Home</a
   >
   <a
+    id="menu-link"
+    href="/portfolio/"
+    class={pathName.includes("/portfolio/")
+      ? currentPageClasses
+      : notCurrentPageClasses}>Portfolio</a
+  >
+  <a
+    id="menu-link"
     href="/contact/"
-    class={pathName === "/contact/" ? currentPageClasses : null}>Contact</a
+    class={pathName === "/contact/"
+      ? currentPageClasses
+      : notCurrentPageClasses}>Contact</a
   >
 </nav>
+
+<script>
+  const links = document.querySelectorAll("#menu-link");
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      link.classList.add("hover:after:scale-100");
+      link.classList.remove("hover:after:scale-0");
+    });
+
+    link.addEventListener("mouseleave", () => {
+      link.classList.add("hover:after:scale-0");
+      link.classList.remove("hover:after:scale-100");
+    });
+  });
+</script>
