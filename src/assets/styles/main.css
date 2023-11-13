@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=eb-garamond:500,600);
+@import url(https://fonts.bunny.net/css?family=eb-garamond:400,500,600);
 
 @font-face {
   font-family: "Satoshi";
@@ -18,7 +18,7 @@ h4,
 h5,
 h6 {
   letter-spacing: clamp(-0.025em, -0.05vw, -0.05em);
-  @apply font-medium leading-tight font-heading;
+  @apply font-normal leading-tight font-heading;
 }
 
 h1,
