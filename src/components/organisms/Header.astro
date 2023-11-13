@@ -43,9 +43,13 @@ const { colorMode = "dark" } = Astro.props;
       </div>
     </div>
 
+    <div class="hidden md:block">
+      <Navigation orientation="horizontal" />
+    </div>
+
     <button
       id="open-menu-text"
-      class=`text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:w-1.5 before:h-1.5 before:rounded-full before:top-1.5 hover:before:bg-primary-600 ${colorMode === "dark" ? "before:bg-white" : "before:bg-black"}`
+      class=`text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:w-1.5 before:h-1.5 before:rounded-full before:top-50% hover:before:bg-primary-600 ${colorMode === "dark" ? "before:bg-white" : "before:bg-black"} md:hidden`
     >
       Menu
     </button>
