@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:03:32.571Z
-thumbnail: /hanzekop-thumb-16-9.webp
+thumbnail: /img/projects/hanzekop-thumb-16-9.webp
 title: Hanzekop Vakantiewoningen
 tagline: Vind jouw rust in Stavoren
 tags:

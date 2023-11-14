@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:02:35.339Z
-thumbnail: /beweegpartner-thumb-16-9.webp
+thumbnail: /img/projects/beweegpartner-thumb-16-9.webp
 title: Beweegpartner
 tagline: In beweging met een nieuwe landingspagina
 tags:

@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:03:35.456Z
-thumbnail: /pagepanda-thumb-16-9.webp
+thumbnail: /img/projects/pagepanda-thumb-16-9.webp
 title: PagePanda
 tagline: Maak gemakkelijk jouw ideale landingspagina
 tags:

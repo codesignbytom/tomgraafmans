@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:03:24.469Z
-thumbnail: /fts-thumb-16-9.webp
+thumbnail: /img/projects/fts-thumb-16-9.webp
 title: Finding the Seoul
 tagline: Al eens aan vakantie in Zuid-Korea gedacht?
 tags:

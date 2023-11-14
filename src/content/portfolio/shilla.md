@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:08:51.651Z
-thumbnail: /shilla-thumb-16-9.webp
+thumbnail: /img/projects/shilla-thumb-16-9.webp
 title: Shilla
 tagline: Shop, spaar en scoor bij Shilla!
 tags:

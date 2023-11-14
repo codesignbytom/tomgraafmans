@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:08:55.200Z
-thumbnail: /wylde-security-thumb-16-9.webp
+thumbnail: /img/projects/wylde-security-thumb-16-9.webp
 title: Wylde Security
 tagline: Bescherm uw bedrijf met expert auditdiensten
 tags:

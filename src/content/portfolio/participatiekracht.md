@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:08:46.343Z
-thumbnail: /participatiekracht-thumb-16-9.webp
+thumbnail: /img/projects/participatiekracht-thumb-16-9.webp
 title: ParticipatieKracht
 tagline: IJzersterk in participatie
 tags:
