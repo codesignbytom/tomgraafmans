@@ -1,5 +1,5 @@
 ---
-const { platform, username } = Astro.props;
+const { platform, username, position = "header" } = Astro.props;
 ---
 
 <a
@@ -9,10 +9,17 @@ const { platform, username } = Astro.props;
   target="_blank"
 >
   <i
-    class=`ph-fill ph-${platform}-logo transition-colors duration-500 ease-in-out group-hover:text-primary-600`
+    class={`ph-${
+      position === "header" ? "fill" : "light"
+    } ph-${platform}-logo transition-colors duration-500 ease-in-out group-hover:text-primary-600`}
   ></i>
-  <span
-    class="text-caption--xs group-hover:text-primary-600 duration-500 ease-in-out transition-colors"
-    >{platform}</span
-  >
+
+  {/* Show span only if position is 'header' */}
+  {
+    position === "header" && (
+      <span class="text-caption--xs group-hover:text-primary-600 duration-500 ease-in-out transition-colors">
+        {platform}
+      </span>
+    )
+  }
 </a>
