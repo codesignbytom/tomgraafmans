@@ -6,7 +6,10 @@ import MySocialLink from "../atoms/MySocialLink.astro";
 const year = new Date().getFullYear();
 ---
 
-<footer id="footer" class=`py-8 md:py-16 xl:py-24 2xl:py-28 text-white bg-black`>
+<footer
+  id="footer"
+  class=`py-8 md:py-16 xl:py-24 2xl:py-28 text-white bg-black`
+>
   <div class="container flex flex-col gap-8 md:gap-10 lg:gap-12 2xl:gap-20">
     <div
       class="flex flex-col md:flex-row md:flex-wrap md:justify-between gap-8"
@@ -30,7 +33,9 @@ const year = new Date().getFullYear();
         >
           Mijn socials
         </div>
-        <div class="flex flex-wrap items-center gap-4 md:flex-nowrap md:justify-end">
+        <div
+          class="flex flex-wrap items-center gap-4 md:flex-nowrap md:justify-end"
+        >
           <MySocialLink
             position="footer"
             platform="linkedin"
@@ -51,11 +56,18 @@ const year = new Date().getFullYear();
             platform="github"
             username="xarxino"
           />
+          <MySocialLink
+            position="footer"
+            platform="read"
+            platformDomain="cv"
+            platformIcon="read-cv"
+            username="tomgraafmans"
+          />
         </div>
       </div>
     </div>
     <div
-      class=`flex flex-col items-center gap-4 text-xs text-center md:text-sm text-white/50 border-t border-white/10 pt-4`
+      class=`flex flex-col items-center gap-4 text-xs text-center md:text-sm text-white/50 md:border-t md:border-white/10 md:pt-4`
     >
       © {year} — Tom Graafmans. Alle rechten voorbehouden.
     </div>
