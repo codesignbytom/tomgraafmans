@@ -6,9 +6,13 @@ const currentPageClasses = `relative text-primary-600 flex items-center after:ab
     ? "after:top-50% after:right-0 after:w-2 after:h-2"
     : "after:-left-8 after:top-50% after:w-1.5 after:h-1.5 font-medium ml-4"
 }`;
-const notCurrentPageClasses = `relative hover:text-primary-600 flex items-center after:transition-all after:absolute after:right-0 after:ml-4 after:h-2 after:w-2 after:scale-0 after:rounded-sm ${
-  header === true ? "after:bg-black/30" : "after:bg-white/30"
-}`;
+const notCurrentPageClasses = `relative hover:text-primary-600 flex items-center transition-all
+${
+  orientation === "vertical"
+    ? "after:transition-all after:absolute after:right-0 after:ml-4 after:h-2 after:w-2 after:scale-0 after:rounded-sm"
+    : ""
+}
+${header === true ? "after:bg-black/30" : "after:bg-white/30"}`;
 ---
 
 <nav
