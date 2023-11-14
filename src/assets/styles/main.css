@@ -96,21 +96,26 @@ h6,
   @apply md:col-span-6;
 }
 
-/* Every first item should have minimum heights */
-.project-preview:nth-of-type(3n + 1) img {
+/* Every first item should have minimum heights (rectangle) */
+.project-preview:nth-of-type(6n + 1) img,
+.project-preview:nth-of-type(6n + 5) img {
   @apply md:min-h-[40rem] lg:min-h-[60rem] xl:min-h-[70rem];
 }
 
-/* Every second item should be a square image */
-.project-preview:nth-of-type(3n + 2) img {
+/* Every second and fourth item should be a square image */
+.project-preview:nth-of-type(6n + 2) img,
+.project-preview:nth-of-type(6n + 4) img {
   @apply md:aspect-square;
 }
 
 /* Every third item spans 12 columns and its image should be aspect-video */
-.project-preview:nth-of-type(3n + 3) {
+.project-preview:nth-of-type(6n + 3),
+.project-preview:nth-of-type(6n + 6) {
   @apply md:col-span-12;
 }
 
-.project-preview:nth-of-type(3n + 3) img {
+/* Every third item should be a square image */
+.project-preview:nth-of-type(6n + 3) img,
+.project-preview:nth-of-type(6n + 6) img {
   @apply aspect-video;
 }
