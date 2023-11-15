@@ -24,24 +24,28 @@ const { projects } = Astro.props;
 ---
 
 <DefaultLayout pageTitle={tag.charAt(0).toUpperCase() + tag.slice(1)}>
-  <div class="container flex flex-col gap-6 pt-4 pb-8">
-    <div class="pt-2 border-t border-black">
-      <h1 class="capitalize-first-letter">{tag}</h1>
-    </div>
-    <div class="flex flex-col gap-8">
-      {
-        projects.map((project) => (
-          <>
-            <ProjectPreview
-              url={`/portfolio/${project.slug}/`}
-              title={project.data.title}
-              thumbnailSrc={project.data.thumbnail}
-              tagline={project.data.tagline}
-              tags={project.data.tags}
-            />
-          </>
-        ))
-      }
+  <div class="container flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 py-8 sm:py-10 md:py-12 2xl:py-16">
+    <h1 class="capitalize-first-letter">{tag}</h1>
+    <div
+      class="flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
+    >
+      <div
+        class="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28"
+      >
+        {
+          projects.map((project) => (
+            <>
+              <ProjectPreview
+                url={`/portfolio/${project.slug}/`}
+                title={project.data.title}
+                thumbnailSrc={project.data.thumbnail}
+                tagline={project.data.tagline}
+                tags={project.data.tags}
+              />
+            </>
+          ))
+        }
+      </div>
     </div>
   </div>
 </DefaultLayout>
