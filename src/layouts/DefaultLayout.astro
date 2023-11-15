@@ -1,6 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-
 import Head from "../components/organisms/Head.astro";
 import Header from "../components/organisms/Header.astro";
 import Footer from "../components/organisms/Footer.astro";
@@ -29,7 +27,6 @@ function setColorMode(colorMode: string) {
   class={`${setColorMode(colorMode) === "dark" ? "bg-black text-white" : ""}`}
 >
   <Head {title} {description} {permalink} />
-  <ViewTransitions />
   <body>
     <Header colorMode={colorMode} />
     <main>
