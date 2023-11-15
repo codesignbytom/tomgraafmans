@@ -20,7 +20,6 @@ const allProjects = await getCollection("portfolio");
     >
       {
         allProjects
-          .slice(1, 7)
           .map((project: any) => (
             <ProjectPreview
               key={project.url}
