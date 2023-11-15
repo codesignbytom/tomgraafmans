@@ -3,6 +3,7 @@ import Navigation from "../molecules/Navigation.astro";
 import Logo from "../atoms/Logo.astro";
 import MySocialLink from "../atoms/MySocialLink.astro";
 import OpenMenuButton from "../atoms/OpenMenuButton.astro";
+import AudioPlayer from "../molecules/AudioPlayer.astro";
 
 const { colorMode = "dark" } = Astro.props;
 ---
@@ -50,16 +51,24 @@ const { colorMode = "dark" } = Astro.props;
       </div>
     </div>
 
-    <div class="hidden md:block">
-      <Navigation orientation="horizontal" />
-    </div>
+    <div class="flex gap-8">
+      <div class="flex gap-8 items-center">
+        <div class="hidden md:block">
+          <Navigation orientation="horizontal" />
+        </div>
+        <AudioPlayer
+          src="/src/assets/audio/titanium.mp3"
+          colorMode={colorMode}
+        />
+      </div>
 
-    <button
-      id="open-menu-text"
-      class=`text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:w-1.5 before:h-1.5 before:rounded-full before:top-50% hover:before:bg-primary-600 ${colorMode === "dark" ? "before:bg-white" : "before:bg-black"} md:hidden`
-    >
-      Menu
-    </button>
+      <button
+        id="open-menu-text"
+        class=`text-caption--sm transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:w-1.5 before:h-1.5 before:rounded-full before:top-50% hover:before:bg-primary-600 ${colorMode === "dark" ? "before:bg-white" : "before:bg-black"} md:hidden`
+      >
+        Menu
+      </button>
+    </div>
 
     <div
       id="menu-overlay"

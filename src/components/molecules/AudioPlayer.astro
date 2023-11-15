@@ -1,0 +1,69 @@
+---
+const { src, colorMode } = Astro.props;
+const audioButtonClasses = `text-sm h-8 w-8 flex items-center justify-center border rounded-full transition-all duration-300 ease-in-out
+${
+  colorMode === "dark"
+    ? "border-white hover:bg-white hover:text-black"
+    : "border-black hover:bg-black hover:text-white"
+}`;
+---
+
+<audio id="backgroundMusic" loop transition:persist>
+  <source src={src} type="audio/mpeg" />
+</audio>
+<button id="playButton" class=`hidden ${audioButtonClasses}`>
+  <i class="ph-fill ph-play"></i>
+</button>
+<button id="pauseButton" class=`hidden ${audioButtonClasses}`>
+  <i class="ph-fill ph-pause"></i>
+</button>
+
+<script>
+  function setupAudioPlayer() {
+    const backgroundMusic = document.getElementById(
+      "backgroundMusic"
+    ) as HTMLAudioElement;
+    const playButton = document.getElementById(
+      "playButton"
+    ) as HTMLButtonElement;
+    const pauseButton = document.getElementById(
+      "pauseButton"
+    ) as HTMLButtonElement;
+
+    const defaultVolume = 0.02;
+    backgroundMusic.volume = defaultVolume;
+
+    function toggleButtons() {
+      if (backgroundMusic.paused) {
+        playButton.classList.remove("hidden");
+        pauseButton.classList.add("hidden");
+      } else {
+        pauseButton.classList.remove("hidden");
+        playButton.classList.add("hidden");
+      }
+    }
+
+    playButton.addEventListener("click", function () {
+      backgroundMusic.play();
+      toggleButtons();
+    });
+
+    pauseButton.addEventListener("click", function () {
+      backgroundMusic.pause();
+      toggleButtons();
+    });
+
+    backgroundMusic
+      .play()
+      .then(() => {
+        toggleButtons();
+      })
+      .catch((error) => {
+        console.error("Autoplay was prevented:", error);
+        toggleButtons();
+      });
+  }
+
+  document.addEventListener("DOMContentLoaded", setupAudioPlayer);
+  document.addEventListener("astro:after-swap", setupAudioPlayer);
+</script>
