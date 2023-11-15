@@ -3,6 +3,7 @@ pubDate: 2023-11-09T22:03:35.456Z
 thumbnail: /img/projects/pagepanda-thumb-16-9.webp
 title: PagePanda
 tagline: Maak gemakkelijk jouw ideale landingspagina
+figmaUrl: https://www.figma.com/file/2YJtUE53pSOvKfO0Nxi9i8/PagePanda?type=design&t=WVt6hIWnWI6r03TA-6
 tags:
   - design
   - copy

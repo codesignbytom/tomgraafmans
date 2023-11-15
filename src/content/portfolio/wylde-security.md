@@ -3,6 +3,7 @@ pubDate: 2023-11-09T22:08:55.200Z
 thumbnail: /img/projects/wylde-security-thumb-16-9.webp
 title: Wylde Security
 tagline: Bescherm uw bedrijf met expert auditdiensten
+figmaUrl: https://www.figma.com/file/RLQ6vVnM2iKB3FnzRNnNUq/Wylde-Security?type=design&t=WVt6hIWnWI6r03TA-6
 tags:
   - branding
   - copy

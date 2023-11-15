@@ -3,6 +3,7 @@ pubDate: 2023-11-09T22:02:35.339Z
 thumbnail: /img/projects/beweegpartner-thumb-16-9.webp
 title: Beweegpartner
 tagline: In beweging met een nieuwe landingspagina
+figmaUrl: https://www.figma.com/file/fMrLoiq48XA9Yo51161RwH/Beweegpartner?type=design&node-id=3%3A5&mode=design&t=VBBFvo7lQvxsylm5-1
 tags:
   - design
   - copy
