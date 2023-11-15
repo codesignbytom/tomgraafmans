@@ -122,7 +122,7 @@ h6,
 
 input,
 textarea {
-  @apply bg-transparent border-white border min-h-[3rem];
+  @apply bg-transparent border-white border min-h-[3rem] p-2;
 }
 
 textarea {
