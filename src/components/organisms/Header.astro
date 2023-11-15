@@ -3,7 +3,6 @@ import Navigation from "../molecules/Navigation.astro";
 import Logo from "../atoms/Logo.astro";
 import MySocialLink from "../atoms/MySocialLink.astro";
 import OpenMenuButton from "../atoms/OpenMenuButton.astro";
-import AudioPlayer from "../molecules/AudioPlayer.astro";
 
 const { colorMode = "dark" } = Astro.props;
 ---
@@ -52,14 +51,8 @@ const { colorMode = "dark" } = Astro.props;
     </div>
 
     <div class="flex gap-8">
-      <div class="flex gap-8 items-center">
-        <div class="hidden md:block">
-          <Navigation orientation="horizontal" />
-        </div>
-        <AudioPlayer
-          src="/src/assets/audio/titanium.mp3"
-          colorMode={colorMode}
-        />
+      <div class="hidden md:block">
+        <Navigation orientation="horizontal" />
       </div>
 
       <button
@@ -139,5 +132,5 @@ const { colorMode = "dark" } = Astro.props;
     });
   }
 
-  init();
+  document.addEventListener("astro:page-load", init);
 </script>
