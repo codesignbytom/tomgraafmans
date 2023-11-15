@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
+    "@astrojs/svelte": "^4.0.3",
     "@astrojs/tailwind": "^5.0.2",
     "@phosphor-icons/web": "^2.0.3",
     "@studio-freight/lenis": "^1.0.27",
     "astro": "^3.5.4",
     "marked": "^10.0.0",
+    "svelte": "^4.2.3",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2"
   }
