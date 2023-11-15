@@ -72,19 +72,19 @@ h6,
 }
 
 .button--primary {
-  @apply text-white button bg-primary-600 hover:bg-black;
+  @apply text-white button bg-primary-600 hover:bg-primary-700;
 }
 
 .button--white {
-  @apply text-black bg-white button hover:bg-black hover:text-white;
+  @apply text-black bg-white button hover:bg-primary-600 hover:text-white;
 }
 
 .button-outlined {
-  @apply text-black border border-black button hover:bg-black hover:text-white;
+  @apply text-black border border-black button hover:bg-primary-600 hover:text-white;
 }
 
 .button-outlined--white {
-  @apply text-white border border-white button hover:bg-black hover:text-white hover:border-transparent;
+  @apply text-white border border-white button hover:bg-primary-600 hover:text-white hover:border-transparent;
 }
 
 .capitalize-first-letter::first-letter {
