@@ -52,23 +52,23 @@ h6,
 }
 
 .text-caption--xs {
-  font-size: clamp(0.625rem, 1vw, 0.75rem);
+  font-size: clamp(.625rem, 1vw, .75rem);
   @apply font-semibold tracking-widest uppercase;
 }
 
 .text-caption--sm {
-  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  font-size: clamp(.75rem, 1vw, .875rem);
   @apply font-semibold tracking-widest uppercase;
 }
 
 .text-caption--md {
-  font-size: clamp(0.875rem, 1vw, 1rem);
+  font-size: clamp(.875rem, 1vw, 1rem);
   @apply font-semibold tracking-widest uppercase;
 }
 
 .button {
   font-size: clamp(1rem, 1vw, 1.25rem);
-  @apply flex items-center justify-center gap-2 px-6 py-4 font-medium leading-none transition-colors duration-200 ease-in-out;
+  @apply flex items-center justify-center gap-4 px-6 py-4 font-medium leading-none transition-colors duration-200 ease-in-out;
 }
 
 .button--primary {
@@ -118,4 +118,13 @@ h6,
 .project-preview:nth-of-type(6n + 3) img,
 .project-preview:nth-of-type(6n + 6) img {
   @apply aspect-video;
+}
+
+input,
+textarea {
+  @apply bg-transparent border-white border min-h-[3rem];
+}
+
+textarea {
+  @apply min-h-[14rem]
 }

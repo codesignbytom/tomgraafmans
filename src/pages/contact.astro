@@ -1,7 +1,78 @@
 ---
+import Button from "../components/atoms/Button.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
-<DefaultLayout pageTitle="Contact">
-  Contact
+<DefaultLayout pageTitle="Contact" colorMode="dark">
+  <div
+    class="container flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28"
+  >
+    <div
+      class="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28"
+    >
+      <div
+        class="md:col-span-6 flex flex-col gap-4 sm:gap-6 md:gap-8 xl:gap-12"
+      >
+        <div class="flex flex-col gap-4 md:gap-6">
+          <h1>Neem contact met mij op!</h1>
+          <p class="text-lg">
+            Neem vandaag nog contact met mij op om te ontdekken hoe we kunnen
+            samenwerken. Of bekijk mijn CV.
+          </p>
+        </div>
+        <Button
+          url="https://www.read.cv/tomgraafmans"
+          title="Bekijk mijn CV"
+          icon="read-cv-logo"
+          className="button--white"
+          external
+        />
+      </div>
+
+      <div
+        class="md:col-span-6 flex flex-col gap-6 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28"
+      >
+        <form
+          name="contact"
+          data-netlify="true"
+          method="POST"
+          class="flex flex-col gap-6"
+        >
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-4">
+              <label for="firstName">Uw voornaam</label>
+              <input type="text" name="firstName" id="firstName" required />
+            </div>
+            <div class="flex flex-col gap-4">
+              <label for="lastName">Uw achternaam</label>
+              <input type="text" name="lastName" id="lastName" required />
+            </div>
+            <div class="flex flex-col gap-4">
+              <label for="email">E-mailadres</label>
+              <input type="email" name="email" id="email" required />
+            </div>
+            <div class="flex flex-col justify-center gap-4">
+              <label for="phone"
+                >Uw telefoonnummer
+                <span class="opacity-75 text-sm">(optioneel)</span>
+              </label>
+              <input type="tel" name="phone" id="phone" />
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <label for="message">Laat weten hoe ik u kan helpen</label>
+            <textarea name="message" id="message" required></textarea>
+          </div>
+          <button
+            type="submit"
+            id="submit-button"
+            class="button button--primary"
+          >
+            <span>Bericht versturen</span>
+            <i class="ph-light ph-paper-plane-tilt text-xl"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </DefaultLayout>
