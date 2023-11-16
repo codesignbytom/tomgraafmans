@@ -27,6 +27,13 @@ function setColorMode(colorMode: string) {
   class={`${setColorMode(colorMode) === "dark" ? "bg-black text-white" : ""}`}
 >
   <Head {title} {description} {permalink} />
+  <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"
+  ></script>
+  <script>
+    Weglot.initialize({
+      api_key: "wg_d7db4ff7b6b7118fad0dcc945c07e24d4",
+    });
+  </script>
   <body>
     <Header colorMode={colorMode} />
     <main>
