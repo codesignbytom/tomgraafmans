@@ -122,10 +122,10 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
             title={testimonial.data.title}
             content={testimonial.data.content}
             name={testimonial.data.referrer.name}
-            jobTitle={testimonial.data.referrer.jobTitle}
+            jobTitle={testimonial.data.referrer.title}
             picture={testimonial.data.referrer.picture}
-            company={testimonial.data.referrer.company}
-            companyUrl={testimonial.data.referrer.companyUrl}
+            company={testimonial.data.referrer.company.name}
+            companyUrl={testimonial.data.referrer.company.url}
           />
         ))
       }

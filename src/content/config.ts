@@ -16,18 +16,19 @@ const testimonialsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     content: z.string(),
-    referrer: {
+    referrer: z.object({
       name: z.string(),
-      jobTitle: z.string(),
+      title: z.string(),
       picture: z.string(),
-      company: {
+      company: z.object({
         name: z.string(),
         url: z.string(),
-      },
-    },
+      }),
+    }),
   }),
 });
 
 export const collections = {
   work: workCollection,
+  testimonials: testimonialsCollection,
 };

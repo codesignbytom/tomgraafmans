@@ -4,7 +4,7 @@ content: >-
   Creatief in zijn designs en werkt binnen zijn design tools op een zeer gestructureerde manier. Tom komt met meerdere uiteenlopende voorbeelden die vaak allen voldoen aan de gestelde eisen.
 referrer:
   name: Michel Bardelmeijer
-  jobTitle: Co-founder
+  title: Co-founder
   picture: /img/clients/enflow/pp-michel.png
   company:
     name: Enflow
