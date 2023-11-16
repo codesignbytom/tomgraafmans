@@ -13,7 +13,7 @@ const uniqueTags = Array.from(
   new Set(frontmatter.tags.map((tag: string) => tag.toLowerCase()))
 );
 
-const allProjects = await getCollection("portfolio");
+const allProjects = await getCollection("work");
 const filteredProjects = allProjects.filter(
   (project) => project.slug !== frontmatter.slug
 );
@@ -92,7 +92,7 @@ if (filteredProjects.length > 0) {
         <h2>Volgende case</h2>
       </div>
       <a
-        href={`/portfolio/${randomProject?.slug}`}
+        href={`/work/${randomProject?.slug}`}
         style={`background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.80) 100%), url('${randomProject?.data.thumbnail}') no-repeat center/cover;`}
         class="h-[50vh] md:h-[60vh] lg:h-[70vh] xl:h-[80vh] w-full flex items-end py-8"
       >

@@ -4,7 +4,7 @@ import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import ProjectPreview from "../../components/molecules/ProjectPreview.astro";
 
 export async function getStaticPaths() {
-  const allProjects = await getCollection("portfolio");
+  const allProjects = await getCollection("work");
   const uniqueTags = [
     ...new Set(allProjects.flatMap((project) => project.data.tags)),
   ];
@@ -36,7 +36,7 @@ const { projects } = Astro.props;
           projects.map((project) => (
             <>
               <ProjectPreview
-                url={`/portfolio/${project.slug}/`}
+                url={`/work/${project.slug}/`}
                 title={project.data.title}
                 thumbnailSrc={project.data.thumbnail}
                 tagline={project.data.tagline}

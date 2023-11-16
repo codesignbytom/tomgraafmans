@@ -8,13 +8,14 @@ import Button from "../components/atoms/Button.astro";
 import SkillPreview from "../components/molecules/SkillPreview.astro";
 import Testimonial from "../components/molecules/Testimonial.astro";
 
-const allProjects = await getCollection("portfolio");
+const allProjects = await getCollection("work");
+const allTestimonials = await getCollection("testimonials");
 const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
 ---
 
 <DefaultLayout>
   <Hero
-    url={`/portfolio/${firstProject.slug}/`}
+    url={`/work/${firstProject.slug}/`}
     title={firstProject.data.title}
     tagline={firstProject.data.tagline}
     image={firstProject?.data.thumbnail}
@@ -59,7 +60,7 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
               <ProjectPreview
                 key={project.url}
                 project={project}
-                url={`/portfolio/${project.slug}/`}
+                url={`/work/${project.slug}/`}
                 title={project.data.title}
                 thumbnailSrc={project.data.thumbnail}
                 tagline={project.data.tagline}
@@ -74,7 +75,7 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
     >
       <h5 class="text-3xl lg:text-4xl 2xl:text-5xl">Snakt dit naar meer?</h5>
       <Button
-        url="/portfolio/"
+        url="/work/"
         className="button--primary"
         title="Bekijk alle cases"
         icon="arrow-line-up-right"
@@ -112,25 +113,22 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
     </div>
   </section>
   <section id="tesimonials" class="py-8 md:py-16 xl:py-24 2xl:py-28">
-    <div class="container flex flex-col md:flex-row gap-8 md:gap-16 xl:gap-24 2xl:gap-28">
-      <Testimonial
-        quoteTitle="Creatieve designer met verassende concepten."
-        quote="Tom is creatieve designer die altijd met verrassende concepten komt. Hij is kundig op het gebied van wireframing en kan een briefing vlot omzetten naar een professioneel design."
-        referrerName="Ron Kesting"
-        referrerPosition="Co-founder"
-        referrerPicture="/img/clients/enflow/pp-ron.png"
-        company="Enflow"
-        companyUrl="https://enflow.nl/"
-      />
-      <Testimonial
-        quoteTitle="Tom ontwerpt creatief, werkt gestructureerd en voldoet aan gestelde eisen."
-        quote="Creatief in zijn designs en werkt binnen zijn design tools op een zeer gestructureerde manier. Tom komt met meerdere uiteenlopende voorbeelden die vaak allen voldoen aan de gestelde eisen."
-        referrerName="Michel Bardelmeijer"
-        referrerPosition="Co-founder"
-        referrerPicture="/img/clients/enflow/pp-michel.png"
-        company="Enflow"
-        companyUrl="https://enflow.nl/"
-      />
+    <div
+      class="container flex flex-col md:flex-row gap-8 md:gap-16 xl:gap-24 2xl:gap-28"
+    >
+      {
+        allTestimonials.map((testimonial) => (
+          <Testimonial
+            title={testimonial.data.title}
+            content={testimonial.data.content}
+            name={testimonial.data.referrer.name}
+            jobTitle={testimonial.data.referrer.jobTitle}
+            picture={testimonial.data.referrer.picture}
+            company={testimonial.data.referrer.company}
+            companyUrl={testimonial.data.referrer.companyUrl}
+          />
+        ))
+      }
     </div>
   </section>
 </DefaultLayout>

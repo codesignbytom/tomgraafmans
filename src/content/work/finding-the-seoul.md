@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:03:24.469Z
-thumbnail: /img/projects/fts-thumb-16-9.webp
+thumbnail: /img/work/fts-thumb-16-9.webp
 title: Finding the Seoul
 tagline: Al eens aan vakantie in Zuid-Korea gedacht?
 figmaUrl: https://www.figma.com/file/iB9VVB0UyU6vr1g3wfePot/Finding-the-Seoul?type=design&t=WVt6hIWnWI6r03TA-6
