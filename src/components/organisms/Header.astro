@@ -7,7 +7,7 @@ import OpenMenuButton from "../atoms/OpenMenuButton.astro";
 const { colorMode = "dark" } = Astro.props;
 ---
 
-<header class="py-4">
+<header class="py-3 sm:py-4 md:py-5">
   <div class="container flex items-center justify-between">
     <Logo />
     <div
@@ -18,7 +18,7 @@ const { colorMode = "dark" } = Astro.props;
         <div class="flex flex-col gap-12">
           <div class="flex items-center justify-between gap-4">
             <div class="w-full pb-3 border-b border-black text-caption--xs">
-              Navigatiemenu
+              Navigation
             </div>
             <button
               id="close-menu-button"
@@ -31,7 +31,7 @@ const { colorMode = "dark" } = Astro.props;
         </div>
         <div class="flex flex-col gap-6">
           <div class="w-full pb-3 border-b border-black text-caption--xs">
-            Mijn socials
+            My socials
           </div>
           <div class="flex flex-wrap items-center gap-6">
             <MySocialLink platform="linkedin" username="tomgraafmans" />
@@ -132,5 +132,5 @@ const { colorMode = "dark" } = Astro.props;
     });
   }
 
-  init();
+  document.addEventListener("astro:page-load", init);
 </script>

@@ -1,13 +1,6 @@
 ---
-const {
-  content,
-  title,
-  picture,
-  name,
-  jobTitle,
-  company,
-  companyUrl,
-} = Astro.props;
+const { content, title, picture, name, jobTitle, company, companyUrl } =
+  Astro.props;
 ---
 
 <div class="flex flex-col gap-6">
@@ -23,7 +16,6 @@ const {
             src={picture}
             alt={name}
             class="w-16 h-16 transition-transform duration-700 ease-in-out rounded-full hover:rotate-12"
-            loading="lazy"
           />
         )
       }
@@ -33,7 +25,7 @@ const {
           company && companyUrl && (
             <div class="flex gap-1 text-sm opacity-75">
               {jobTitle}
-              <span>bij</span>
+              <span>at</span>
               <a
                 href={companyUrl}
                 target="_blank"
