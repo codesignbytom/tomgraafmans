@@ -50,7 +50,7 @@ import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
               />
             </div>
             <div class="flex flex-col gap-4 xl:gap-6 col-span-2">
-              <label for="services">What services are you in need of?</label>
+              <label for="services">What services are you looking for?</label>
               <select name="services" id="services" required>
                 <option value="website">Website Design</option>
                 <option value="app">App Design</option>
@@ -60,7 +60,7 @@ import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
             </div>
           </div>
           <div class="flex flex-col gap-4 xl:gap-6 relative">
-            <label for="message">Let me know in detail how I can help</label>
+            <label for="message">Tell me about your ideas</label>
             <textarea
               name="message"
               id="message"
@@ -119,15 +119,21 @@ import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
             </a>
           </div>
           <div class="flex flex-col gap-4">
-            <h5 class="text-caption--sm opacity-50">Business details</h5>
+            <h5 class="text-caption--sm opacity-50">Other details</h5>
             <a
               href="https://en.wikipedia.org/wiki/Netherlands"
               target="_blank"
               class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
             >
               <i class="ph-fill ph-house"></i>
-              <span> The Netherlands</span>
+              <span>Based in The Netherlands</span>
             </a>
+            <div
+              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
+            >
+              <i class="ph-fill ph-clock"></i>
+              <span id="time-display"></span>
+            </div>
           </div>
           <div class="flex flex-col gap-4">
             <h5 class="text-caption--sm opacity-50">My socials</h5>
@@ -140,7 +146,7 @@ import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
               <span>LinkedIn</span>
             </a>
             <a
-              href="https://dribbble.com/tomgraafmans"
+              href="https://dribbble.com/varvino"
               target="_blank"
               class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
             >
@@ -169,3 +175,32 @@ import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
     </div>
   </div>
 </Layout>
+
+<script>
+  if (typeof window !== "undefined" && typeof document !== "undefined") {
+    function setLocalTime() {
+      const timeDisplay = document.querySelector(
+        "#time-display"
+      ) as HTMLDivElement;
+
+      const now = new Date();
+      const time = now.toLocaleTimeString("nl-NL", {
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      });
+
+      // Calculate the GMT offset
+      const offset = -now.getTimezoneOffset();
+      const offsetHours = Math.floor(offset / 60);
+      const offsetMinutes = offset % 60;
+      const formattedOffset = `GMT${
+        offsetHours >= 0 ? "+" : ""
+      }${offsetHours}:${offsetMinutes < 10 ? "0" : ""}${offsetMinutes}`;
+
+      timeDisplay.textContent = `${time} ${formattedOffset}`;
+    }
+    setLocalTime();
+    setInterval(setLocalTime, 1000);
+  }
+</script>

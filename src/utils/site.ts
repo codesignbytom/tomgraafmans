@@ -20,13 +20,15 @@ export function thisMonthToLocale(locale: string) {
  */
 export function nextMonthToLocale(locale: string) {
   const currentDate = new Date();
+  const options = {
+    month: "long",
+    year: "numeric",
+    timeZone: "Europe/Amsterdam",
+  };
   const nextMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth() + 1
   );
-  const nextMonthString = nextMonth.toLocaleString(locale, {
-    month: "long",
-    year: "numeric",
-  });
+  const nextMonthString = nextMonth.toLocaleString(locale, options as any);
   return nextMonthString;
 }
