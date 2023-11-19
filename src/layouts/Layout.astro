@@ -17,13 +17,12 @@ const permalink = SITE_URL;
 const description = SITE_DESCRIPTION;
 const { pageTitle = "Developer & Designer", colorMode = "light" } = Astro.props;
 const title = `${SITE_NAME} • ${pageTitle}`;
+
+let isDarkMode = setColorMode(colorMode) === "dark";
 ---
 
 <!doctype html>
-<html
-  lang="nl"
-  class={`${setColorMode(colorMode) === "dark" ? "bg-black text-white" : ""}`}
->
+<html lang="nl" {...isDarkMode ? { class: "bg-black text-white" } : {}}>
   <Head {title} {description} {permalink} />
   <body>
     <Header colorMode={colorMode} />
