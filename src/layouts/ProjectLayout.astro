@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 
 import { marked } from "marked";
-import DefaultLayout from "./DefaultLayout.astro";
+import Layout from "./Layout.astro";
 import Tag from "../../src/components/atoms/Tag.astro";
 import Button from "../components/atoms/Button.astro";
 
@@ -29,7 +29,7 @@ if (filteredProjects.length > 0) {
 }
 ---
 
-<DefaultLayout pageTitle={frontmatter.title} colorMode={colorMode}>
+<Layout pageTitle={frontmatter.title} colorMode={colorMode}>
   <section>
     <img
       class="h-[50vh] object-cover w-full md:h-[60vh] lg:h-[70vh] xl:h-[80vh]"
@@ -58,7 +58,7 @@ if (filteredProjects.length > 0) {
                 <Button
                   url={frontmatter.siteUrl}
                   icon="arrow-line-up-right"
-                  title="Bekijk live site"
+                  title="See the site"
                   className="button--white"
                   external={true}
                 />
@@ -67,7 +67,7 @@ if (filteredProjects.length > 0) {
                 <Button
                   url={frontmatter.figmaUrl}
                   icon="figma-logo"
-                  title="Bekijk op Figma"
+                  title="Take a look on Figma"
                   className={
                     frontmatter.siteUrl
                       ? "button-outlined--white"
@@ -89,7 +89,7 @@ if (filteredProjects.length > 0) {
           colorMode ? "border-white" : ""
         }`}
       >
-        <h2>Volgende case</h2>
+        <h2>Next case</h2>
       </div>
       <a
         href={`/work/${randomProject?.slug}`}
@@ -107,4 +107,4 @@ if (filteredProjects.length > 0) {
       </a>
     </div>
   </section>
-</DefaultLayout>
+</Layout>

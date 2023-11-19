@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import { SITE_NAME, SITE_DESCRIPTION } from "../consts";
+
+import Layout from "../layouts/Layout.astro";
 import ProjectPreview from "../components/molecules/ProjectPreview.astro";
 import Hero from "../components/organisms/Hero.astro";
 import Button from "../components/atoms/Button.astro";
@@ -13,7 +15,7 @@ const allTestimonials = await getCollection("testimonials");
 const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
 ---
 
-<DefaultLayout>
+<Layout>
   <Hero
     url={`/work/${firstProject.slug}/`}
     title={firstProject.data.title}
@@ -23,22 +25,16 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
 
   <section
     id="introduction"
-    class="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28"
+    class="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 2xl:py-40"
   >
     <div
       class="container flex flex-col md:flex-row gap-4 md:gap-8 lg:gap-12 xl:gap-16"
     >
       <h3 class="order-2 text-3xl md:text-4xl lg:text-5xl">
-        Ik ben Tom, een developer & designer,
-        <span class="underline text-primary-600">gespecialiseerd</span> in het <span
-          class="underline text-primary-600">maken</span
-        > van frisse en <span class="underline text-primary-600"
-          >gebruiksvriendelijke</span
-        >
-         websites & apps.
+        {SITE_DESCRIPTION}
       </h3>
       <h4 class="order-1 text-xl lg:text-2xl font-body md:whitespace-nowrap">
-        Mijn verhaal
+        My story
       </h4>
     </div>
   </section>
@@ -47,15 +43,12 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
     <div
       class="container flex flex-col gap-8 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
     >
-      <div class="pt-4 sm:pt-5 md:pt-6 border-t border-black">
-        <h2 class="text-h1">Geselecteerd werk</h2>
-      </div>
       <div
         class="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28"
       >
         {
           allProjects
-            .slice(1, 7)
+            .slice(1, 4)
             .map((project: any) => (
               <ProjectPreview
                 key={project.url}
@@ -73,11 +66,11 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
     <div
       class="container flex flex-col md:flex-row md:justify-between md:items-center gap-4 pt-4 lg:pt-6 mt-8 md:mt-12 lg:mt-20 xl:mt-24 2xl:mt-28 border-t border-black"
     >
-      <h5 class="text-3xl lg:text-4xl 2xl:text-5xl">Snakt dit naar meer?</h5>
+      <h5 class="text-3xl lg:text-4xl 2xl:text-5xl">Craving for more?</h5>
       <Button
         url="/work/"
         className="button--primary"
-        title="Bekijk alle cases"
+        title="See all cases"
         icon="arrow-line-up-right"
       />
     </div>
@@ -87,26 +80,26 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
     class="py-8 md:py-16 xl:py-24 2xl:py-28 bg-neutral-100"
   >
     <div class="container flex flex-col gap-8 md:gap-16 xl:gap-24 2xl:gap-28">
-      <h2 class="text-h1">Wat ik kan & doe</h2>
+      <h2 class="text-h1">What I can help you with</h2>
       <div class="grid gap-6 md:gap-16 xl:gap-24 2xl:gap-28 sm:grid-cols-2">
         <SkillPreview
           title="Development"
-          description="Voor al mijn projecten gebruik ik een moderne combinatie van tools en technieken, dit komt de kwaliteit en snelheid van uw website ten goede."
+          description="For all my projects, I use a modern combination of tools and techniques, which enhances the quality and speed of your website."
           icon="code"
         />
         <SkillPreview
           title="Digital Design"
-          description="Bij het ontwerpen van een website of app houd ik rekening met de gebruiker, het doel en de context. Zo creëer ik een gebruiksvriendelijke ervaring voor zowel u en uw klanten."
+          description="When designing a website or app, I consider the user, the goal, and the context. This way, I create a user-friendly experience for both you and your customers."
           icon="magic-wand"
         />
         <SkillPreview
           title="Interaction Design"
-          description="Een website moet niet alleen mooi zijn, maar ook gebruiksvriendelijk. Ik zorg ervoor dat uw website of app intuïtief werkt en een plezier is om te gebruiken."
+          description="A website should not only look good but also be user-friendly. I ensure that your website or app is intuitive to use and a pleasure to interact with."
           icon="cursor-click"
         />
         <SkillPreview
-          title="Illustraties"
-          description="Of u nu een vleugje creativiteit wilt toevoegen aan uw website, app of marketingmateriaal, ik sta klaar om unieke illustraties te maken die uw merk laten stralen."
+          title="Illustrations"
+          description="Whether you want to add a touch of creativity to your website, app, or marketing materials, I am ready to create unique illustrations that make your brand shine."
           icon="pencil-circle"
         />
       </div>
@@ -131,4 +124,4 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
       }
     </div>
   </section>
-</DefaultLayout>
+</Layout>

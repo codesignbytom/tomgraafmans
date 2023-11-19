@@ -1,78 +1,154 @@
 ---
-import Button from "../components/atoms/Button.astro";
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<DefaultLayout pageTitle="Contact" colorMode="dark">
+<Layout pageTitle="Contact" colorMode="dark">
   <div
     class="container flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28"
   >
-    <div
-      class="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28"
-    >
+    <div class="flex flex-col gap-6 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28">
       <div
-        class="md:col-span-6 flex flex-col gap-4 sm:gap-6 md:gap-8 xl:gap-12"
+        class="md:col-span-6 flex flex-col gap-4 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28"
       >
         <div class="flex flex-col gap-4 md:gap-6">
-          <h1>Neem contact met mij op!</h1>
-          <p class="text-lg">
-            Neem vandaag nog contact met mij op om te ontdekken hoe we kunnen
-            samenwerken. Of bekijk mijn CV.
-          </p>
+          <h1 class="max-w-[60vw]">
+            I'm currently looking for new projects, so if you'd like to get in
+            touch, feel free to reach out!
+          </h1>
         </div>
-        <Button
-          url="https://www.read.cv/tomgraafmans"
-          title="Bekijk mijn CV"
-          icon="read-cv-logo"
-          className="button--white"
-          external
-        />
       </div>
 
       <div
-        class="md:col-span-6 flex flex-col gap-6 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28"
+        class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
       >
         <form
           name="contact"
           data-netlify="true"
           method="POST"
-          class="flex flex-col gap-6"
+          class="flex flex-col gap-6 xl:gap-12 md:col-span-8"
         >
-          <div class="grid xl:grid-cols-2 gap-6">
-            <div class="flex flex-col gap-4">
-              <label for="firstName">Uw voornaam</label>
-              <input type="text" name="firstName" id="firstName" required />
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-4 xl:gap-6">
+              <label for="name">What's your name?</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                placeholder="John Smith"
+              />
             </div>
-            <div class="flex flex-col gap-4">
-              <label for="lastName">Uw achternaam</label>
-              <input type="text" name="lastName" id="lastName" required />
+            <div class="flex flex-col gap-4 xl:gap-6">
+              <label for="email">And your email?</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                placeholder="j.smith@company.io"
+              />
             </div>
-            <div class="flex flex-col gap-4">
-              <label for="email">E-mailadres</label>
-              <input type="email" name="email" id="email" required />
+            <div class="flex flex-col gap-4 xl:gap-6 col-span-2">
+              <label for="services">What services are you in need of?</label>
+              <select name="services" id="services" required>
+                <option value="website">Website Design</option>
+                <option value="app">App Design</option>
+                <option value="illustration">Illustration</option>
+                <option value="other">Other</option>
+              </select>
             </div>
-            <div class="flex flex-col justify-center gap-4">
-              <label for="phone"
-                >Uw telefoonnummer
-                <span class="opacity-75 text-sm">(optioneel)</span>
-              </label>
-              <input type="tel" name="phone" id="phone" />
-            </div>
+          </div>
+          <div class="flex flex-col gap-4 xl:gap-6 relative">
+            <label for="message">Let me know in detail how I can help</label>
+            <textarea
+              name="message"
+              id="message"
+              required
+              placeholder="Hi Tom, I've got this project in mind and.."
+              class="lg:text-xl"></textarea>
+            <button
+              type="submit"
+              id="submit-button"
+              class="button button--primary rounded-full w-40 h-40 absolute -bottom-20 right-24"
+            >
+              <span>Let's talk</span>
+            </button>
+          </div>
+        </form>
+        <div
+          class="md:col-span-4 flex flex-col gap-4 sm:gap-6 md:gap-8 xl:gap-10"
+        >
+          <img
+            src="../../public/img/tom.jpg"
+            alt="Contact"
+            class="aspect-square sm:aspect-video object-cover w-32 h-32 rounded-full"
+          />
+
+          <div class="flex flex-col gap-4">
+            <h5 class="text-caption--sm opacity-50">Contact details</h5>
+            <a
+              href="mailto:info@tomgraafmans.com"
+              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
+            >
+              <i class="ph-fill ph-envelope"></i>
+              <span>info@tomgraafmans.com</span>
+            </a>
+            <a
+              href="callto:+31622785377"
+              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
+            >
+              <i class="ph-fill ph-phone"></i>
+              <span>+31622785377</span>
+            </a>
           </div>
           <div class="flex flex-col gap-4">
-            <label for="message">Laat weten hoe ik u kan helpen</label>
-            <textarea name="message" id="message" required></textarea>
+            <h5 class="text-caption--sm opacity-50">Business details</h5>
+            <a
+              href="https://en.wikipedia.org/wiki/Netherlands"
+              target="_blank"
+              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
+            >
+              <i class="ph-fill ph-house"></i>
+              <span> The Netherlands</span>
+            </a>
           </div>
-          <button
-            type="submit"
-            id="submit-button"
-            class="button button--primary"
-          >
-            <span>Bericht versturen</span>
-            <i class="ph-light ph-paper-plane-tilt text-xl"></i>
-          </button>
-        </form>
+          <div class="flex flex-col gap-4">
+            <h5 class="text-caption--sm opacity-50">My socials</h5>
+            <a
+              href="https://www.linkedin.com/in/tomgraafmans/"
+              target="_blank"
+              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
+            >
+              <i class="ph-fill ph-linkedin-logo"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://dribbble.com/tomgraafmans"
+              target="_blank"
+              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
+            >
+              <i class="ph-fill ph-dribbble-logo"></i>
+              <span>Dribbble</span>
+            </a>
+            <a
+              href="https://behance.net/tomgraafmans"
+              target="_blank"
+              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
+            >
+              <i class="ph-fill ph-behance-logo"></i>
+              <span>Behance</span>
+            </a>
+            <a
+              href="https://github.com/xarxino"
+              target="_blank"
+              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
+            >
+              <i class="ph-fill ph-github-logo"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</DefaultLayout>
+</Layout>
