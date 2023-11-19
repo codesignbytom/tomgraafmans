@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         body: ["Satoshi", "sans-serif"],
-        heading: ["EB Garamond", "serif"],
+        heading: ["Cabinet Grotesk", "sans-serif"],
       },
       colors: {
         primary: {
