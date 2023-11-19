@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         class="md:col-span-6 flex flex-col gap-4 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-28"
       >
         <div class="flex flex-col gap-4 md:gap-6">
-          <h1 class="max-w-[60vw]">
+          <h1 class="lg:max-w-[80vw] xl:max-w-[60vw]">
             I'm currently looking for new projects, so if you'd like to get in
             touch, feel free to reach out!
           </h1>
@@ -19,13 +19,13 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div
-        class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
+        class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
       >
         <form
           name="contact"
           data-netlify="true"
           method="POST"
-          class="flex flex-col gap-6 xl:gap-12 md:col-span-8"
+          class="flex flex-col gap-6 xl:gap-12 lg:col-span-8"
         >
           <div class="flex flex-col gap-6">
             <div class="flex flex-col gap-4 xl:gap-6">
@@ -69,14 +69,14 @@ import Layout from "../layouts/Layout.astro";
             <button
               type="submit"
               id="submit-button"
-              class="button button--primary rounded-full w-40 h-40 absolute -bottom-20 right-24"
+              class="button button--primary rounded-full w-28 h-28 lg:h-40 lg:w-40 absolute -bottom-16 left-6"
             >
               <span>Let's talk</span>
             </button>
           </div>
         </form>
         <div
-          class="md:col-span-4 flex flex-col gap-4 sm:gap-6 md:gap-8 xl:gap-10"
+          class="lg:col-span-4 flex flex-col gap-12 pt-16 mt-24 border-t border-white/20 lg:border-none lg:mt-0 lg:pt-0"
         >
           <img
             src="/img/tom.jpg"

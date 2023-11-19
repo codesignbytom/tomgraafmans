@@ -146,5 +146,17 @@ html.bg-black option {
 }
 
 textarea {
-  @apply min-h-[14rem]
+  @apply min-h-[16rem];
+}
+
+textarea::-webkit-scrollbar {
+  @apply w-2;
+}
+
+textarea::-webkit-scrollbar-track {
+  @apply bg-white/20;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  @apply bg-white/50;
 }
