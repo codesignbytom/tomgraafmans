@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { thisMonthToLocale } from "../utils/site";
+import { nextMonthToLocale } from "../utils/site";
+import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
 ---
 
 <Layout pageTitle="Contact" colorMode="dark">
@@ -18,7 +19,6 @@ import { thisMonthToLocale } from "../utils/site";
           </h1>
         </div>
       </div>
-
       <div
         class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
       >
@@ -91,7 +91,13 @@ import { thisMonthToLocale } from "../utils/site";
               class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors cursor-pointer select-none"
             >
               <i class="ph ph-calendar"></i>
-              <span> Available for work in {thisMonthToLocale}</span>
+              {
+                AVAILABILITY === true ? (
+                  <span>Available for work in {nextMonthToLocale}</span>
+                ) : (
+                  <span>Available for work in {AVAILABILITY_DATE}</span>
+                )
+              }
             </div>
           </div>
           <div class="flex flex-col gap-4">
