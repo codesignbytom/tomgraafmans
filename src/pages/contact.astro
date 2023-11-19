@@ -86,9 +86,19 @@ import { thisMonthToLocale } from "../utils/site";
           />
 
           <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-4">
+              <h5 class="text-caption--sm opacity-50">Availability</h5>
+              <div
+                class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors cursor-pointer select-none"
+              >
+                <i class="ph ph-calendar"></i>
+                <span> Available for work in {thisMonthToLocale}</span>
+              </div>
+            </div>
             <h5 class="text-caption--sm opacity-50">Contact details</h5>
             <a
               href="mailto:info@tomgraafmans.com"
+              target="_blank"
               class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
             >
               <i class="ph-fill ph-envelope"></i>
@@ -99,7 +109,7 @@ import { thisMonthToLocale } from "../utils/site";
               class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
             >
               <i class="ph-fill ph-phone"></i>
-              <span>+31622785377</span>
+              <span>+31 6 22 78 53 77</span>
             </a>
           </div>
           <div class="flex flex-col gap-4">
