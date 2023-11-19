@@ -1,7 +1,7 @@
 ---
-title: Creatieve designer met verassende concepten.
+title: Creative designer with surprising ideas.
 content: >-
-  Tom is creatieve designer die altijd met verrassende concepten komt. Hij is kundig op het gebied van wireframing en kan een briefing vlot omzetten naar een professioneel design.
+  Tom is a creative designer who always comes up with surprising ideas. He is skilled in wireframing and can quickly turn a briefing into a professional design.
 referrer:
   name: Ron Kesting
   title: Co-founder

@@ -1,7 +1,7 @@
 ---
-title: Tom ontwerpt creatief, werkt gestructureerd en voldoet aan gestelde eisen.
+title: Tom designs creatively, works in a structured manner, and meets the set requirements.
 content: >-
-  Creatief in zijn designs en werkt binnen zijn design tools op een zeer gestructureerde manier. Tom komt met meerdere uiteenlopende voorbeelden die vaak allen voldoen aan de gestelde eisen.
+  Creative in his designs and works within his design tools in a very structured way. Tom comes up with multiple diverse examples that often all meet the set requirements.
 referrer:
   name: Michel Bardelmeijer
   title: Co-founder
