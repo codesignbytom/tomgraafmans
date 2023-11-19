@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Layout from "../../layouts/Layout.astro";
 import ProjectPreview from "../../components/molecules/ProjectPreview.astro";
 
 export async function getStaticPaths() {
@@ -23,7 +23,7 @@ const { tag } = Astro.params;
 const { projects } = Astro.props;
 ---
 
-<DefaultLayout pageTitle={tag.charAt(0).toUpperCase() + tag.slice(1)}>
+<Layout pageTitle={tag.charAt(0).toUpperCase() + tag.slice(1)}>
   <div class="container flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 py-8 sm:py-10 md:py-12 2xl:py-16">
     <h1 class="capitalize-first-letter">{tag}</h1>
     <div
@@ -48,4 +48,4 @@ const { projects } = Astro.props;
       </div>
     </div>
   </div>
-</DefaultLayout>
+</Layout>
