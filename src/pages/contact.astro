@@ -193,10 +193,7 @@ import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
       // Calculate the GMT offset
       const offset = -now.getTimezoneOffset();
       const offsetHours = Math.floor(offset / 60);
-      const offsetMinutes = offset % 60;
-      const formattedOffset = `GMT${
-        offsetHours >= 0 ? "+" : ""
-      }${offsetHours}:${offsetMinutes < 10 ? "0" : ""}${offsetMinutes}`;
+      const formattedOffset = `GMT${offsetHours >= 0 ? "+" : ""}${offsetHours}`;
 
       timeDisplay.textContent = `${time} ${formattedOffset}`;
     }
