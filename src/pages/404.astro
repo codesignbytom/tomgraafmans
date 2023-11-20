@@ -3,7 +3,7 @@ import Button from "../components/atoms/Button.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout pageTitle="Contact" colorMode="dark">
+<Layout pageTitle="404" metaTitle="Contact" colorMode="dark">
   <div
     class="container flex flex-col gap-6 md:gap-12 min-h-[60vh] justify-center items-center py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 text-center"
   >
@@ -11,6 +11,11 @@ import Layout from "../layouts/Layout.astro";
     <h2 class="text-h4">
       Oh boy, that's awkward. Looks like there's nothing here. 😓
     </h2>
-    <Button title="Back to home" url="/" className="button--primary" icon="arrow-u-down-left" />
+    <Button
+      title="Back to home"
+      url="/"
+      className="button--primary"
+      icon="arrow-u-down-left"
+    />
   </div>
 </Layout>

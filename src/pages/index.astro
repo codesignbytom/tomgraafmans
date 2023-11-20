@@ -15,7 +15,7 @@ const allTestimonials = await getCollection("testimonials");
 const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
 ---
 
-<Layout>
+<Layout pageTitle="home" metaTitle="Designer & Developer">
   <Hero
     url={`/work/${firstProject.slug}/`}
     title={firstProject.data.title}

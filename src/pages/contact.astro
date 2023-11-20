@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { nextMonthToLocale } from "../utils/site";
+import { nextMonthToLocale } from "../assets/scripts/site";
 import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
 ---
 
-<Layout pageTitle="Contact" colorMode="dark">
+<Layout pageTitle="contact" metaTitle="Contact" colorMode="dark">
   <div
     class="container flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28"
   >
@@ -204,3 +204,4 @@ import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
     setInterval(setLocalTime, 1000);
   }
 </script>
+ ../scripts/site

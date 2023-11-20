@@ -1,4 +1,7 @@
 ---
+import { AVAILABILITY, AVAILABILITY_DATE } from "../../consts";
+import { nextMonthToLocale } from "../../assets/scripts/site";
+
 import Navigation from "../molecules/Navigation.astro";
 import Logo from "../atoms/Logo.astro";
 import MySocialLink from "../atoms/MySocialLink.astro";
@@ -28,6 +31,18 @@ const { colorMode = "dark" } = Astro.props;
             </button>
           </div>
           <Navigation header={true} />
+        </div>
+        <div
+          class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors cursor-pointer select-none"
+        >
+          <i class="ph ph-calendar"></i>
+          {
+            AVAILABILITY === true ? (
+              <span>Available for work in {nextMonthToLocale}</span>
+            ) : (
+              <span>Available for work in {AVAILABILITY_DATE}</span>
+            )
+          }
         </div>
         <div class="flex flex-col gap-6">
           <div class="w-full pb-3 border-b border-black text-caption--xs">

@@ -1,6 +1,6 @@
 ---
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "../consts";
-import { setColorMode } from "../utils/site";
+import { setColorMode } from "../assets/scripts/site";
 
 import Head from "../components/organisms/Head.astro";
 import Header from "../components/organisms/Header.astro";
@@ -15,8 +15,12 @@ import "@phosphor-icons/web/fill";
 
 const permalink = SITE_URL;
 const description = SITE_DESCRIPTION;
-const { pageTitle = "Developer & Designer", colorMode = "light" } = Astro.props;
-const title = `${SITE_NAME} • ${pageTitle}`;
+const {
+  metaTitle = "Developer & Designer",
+  colorMode = "light",
+  pageTitle = "",
+} = Astro.props;
+const title = `${SITE_NAME} • ${metaTitle}`;
 
 let isDarkMode = setColorMode(colorMode) === "dark";
 ---
@@ -30,5 +34,9 @@ let isDarkMode = setColorMode(colorMode) === "dark";
       <slot />
     </main>
     <Footer />
+    <script>
+      import { raf } from "../assets/scripts/lenis";
+      requestAnimationFrame(raf);
+    </script>
   </body>
 </html>
