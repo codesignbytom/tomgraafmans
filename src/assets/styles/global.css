@@ -133,7 +133,7 @@ h6,
 html.bg-black input,
 html.bg-black textarea,
 html.bg-black select {
-  @apply bg-transparent border-white/20 border-b focus:border-white focus:outline-none transition-colors p-2 xl:text-xl placeholder:text-white/50;
+  @apply bg-transparent border-white/20 border-b focus:border-white focus:outline-none transition-colors p-2 xl:text-xl placeholder:text-white/50 active:border-white;
 }
 
 label {
