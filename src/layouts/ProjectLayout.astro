@@ -13,6 +13,10 @@ const uniqueTags = Array.from(
   new Set(frontmatter.tags.map((tag: string) => tag.toLowerCase()))
 );
 
+const gallery = Array.from(
+  new Set((frontmatter.gallery || []).map((image: string) => image.toLowerCase()))
+);
+
 const allProjects = await getCollection("work");
 const filteredProjects = allProjects.filter(
   (project) => project.slug !== frontmatter.slug
@@ -35,49 +39,64 @@ if (filteredProjects.length > 0) {
       alt={frontmatter.title}
     />
     <div
-      class="container flex flex-col gap-6 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 md:grid md:grid-cols-2 md:gap-12 lg:gap-20"
+      class="container flex flex-col gap-6 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 md:gap-12 lg:gap-20"
     >
-      <div class="flex flex-col gap-4">
-        <h1>{frontmatter.title}</h1>
-        <div class="flex flex-wrap gap-2">
+      <div class="grid gap-6 md:grid-cols-2 md:gap-12 lg:gap-20">
+        <div class="flex flex-col gap-4">
+          <h1>{frontmatter.title}</h1>
+          <div class="flex flex-wrap gap-2">
+            {
+              uniqueTags.map((tag) => (
+                <Tag key={tag} tagTitle={tag} colorMode={colorMode} />
+              ))
+            }
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 md:gap-6 lg:gap-8 2xl:gap-12">
+          <div class="flex flex-col gap-3 md:gap-4" set:html={contentHtml} />
           {
-            uniqueTags.map((tag) => (
-              <Tag key={tag} tagTitle={tag} colorMode={colorMode} />
-            ))
+            (frontmatter.siteUrl || frontmatter.figmaUrl) && (
+              <div class="flex flex-col gap-4 lg:flex-row">
+                {frontmatter.siteUrl && (
+                  <Button
+                    url={frontmatter.siteUrl}
+                    icon="arrow-line-up-right"
+                    title="Live site"
+                    className="button--white"
+                    external={true}
+                  />
+                )}
+                {frontmatter.figmaUrl && (
+                  <Button
+                    url={frontmatter.figmaUrl}
+                    icon="figma-logo"
+                    title="Take a look on Figma"
+                    className={
+                      frontmatter.siteUrl
+                        ? "button-outlined--white"
+                        : "button--white"
+                    }
+                    external={true}
+                  />
+                )}
+              </div>
+            )
           }
         </div>
       </div>
-      <div class="flex flex-col gap-4 md:gap-6 lg:gap-8 2xl:gap-12">
-        <div class="flex flex-col gap-3 md:gap-4" set:html={contentHtml} />
-        {
-          (frontmatter.siteUrl || frontmatter.figmaUrl) && (
-            <div class="flex flex-col lg:flex-row gap-4">
-              {frontmatter.siteUrl && (
-                <Button
-                  url={frontmatter.siteUrl}
-                  icon="arrow-line-up-right"
-                  title="Live site"
-                  className="button--white"
-                  external={true}
-                />
-              )}
-              {frontmatter.figmaUrl && (
-                <Button
-                  url={frontmatter.figmaUrl}
-                  icon="figma-logo"
-                  title="Take a look on Figma"
-                  className={
-                    frontmatter.siteUrl
-                      ? "button-outlined--white"
-                      : "button--white"
-                  }
-                  external={true}
-                />
-              )}
-            </div>
-          )
-        }
-      </div>
+      {
+        gallery.length > 0 && (
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-12 lg:gap-20 xl:gap-24 2xl:gap-28">
+            {gallery.map((image) => (
+              <img
+                class="w-full object-cover col-span-full"
+                src={image}
+                alt={frontmatter.title}
+              />
+            ))}
+          </div>
+        )
+      }
     </div>
   </section>
   <section id="next-case">
@@ -94,7 +113,7 @@ if (filteredProjects.length > 0) {
         class="min-h-[80vh] md:min-h-[85vh] relative group flex items-end py-8 md:py-10 lg:py-12"
       >
         <div
-          class="container flex flex-col-reverse gap-1 lg:gap-2 text-white relative z-20"
+          class="container relative z-20 flex flex-col-reverse gap-1 text-white lg:gap-2"
         >
           <h3 class="text-h5 font-body">
             {randomProject?.data.title ?? "Project title"}
@@ -105,7 +124,7 @@ if (filteredProjects.length > 0) {
         </div>
         <div
           style={`background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.50) 100%), url('${randomProject?.data.thumbnail}') no-repeat center/cover;`}
-          class="group-hover:brightness-90 transition-all duration-500 ease-in-out absolute inset-0 z-0"
+          class="absolute inset-0 z-0 transition-all duration-500 ease-in-out group-hover:brightness-90"
         >
         </div>
       </a>

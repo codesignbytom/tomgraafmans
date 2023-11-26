@@ -10,6 +10,7 @@ const workCollection = defineCollection({
     siteUrl: z.string().url().optional(),
     tags: z.array(z.string()),
     content: z.string(),
+    gallery: z.array(z.string()).optional(),
   }),
 });
 
