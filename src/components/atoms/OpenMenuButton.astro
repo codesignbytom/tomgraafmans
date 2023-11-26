@@ -1,6 +1,6 @@
 <div
   id="open-menu-button-wrapper"
-  class="fixed top-0 left-0 z-50 w-full pointer-events-none"
+  class="fixed top-0 left-0 z-[800] w-full pointer-events-none"
 >
   <div class="container flex justify-end py-4">
     <button
@@ -16,7 +16,8 @@
   const openMenuButton = document.querySelector(
     "#open-menu-button"
   ) as HTMLButtonElement;
-
+  const menu = document.querySelector("#menu") as HTMLDivElement;
+  
   const scaleOpenMenuButtonOnScroll = () => {
     let lastScrollTop = 0;
     const scrollThreshold = window.innerHeight * 0.3;
@@ -34,6 +35,13 @@
 
     const handleScroll = () => {
       let currentScrollTop = window.scrollY;
+      const menuIsOpen = menu.getAttribute("data-open") === "true";
+
+      if (menuIsOpen) {
+        // Prevent scaling up the button if the menu is open
+        return;
+      }
+
       if (
         currentScrollTop > lastScrollTop &&
         currentScrollTop > scrollThreshold
@@ -49,6 +57,30 @@
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("load", handlePageLoad);
+
+    // Adding a MutationObserver to watch for changes in the 'data-open' attribute of the menu
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "data-open"
+        ) {
+          const isOpen = menu.getAttribute("data-open") === "true";
+          if (isOpen) {
+            // Scale down the button when menu is open
+            openMenuButton.classList.remove("scale-100");
+          } else {
+            // Scale up the button when menu is closed
+            openMenuButton.classList.add("scale-100");
+          }
+        }
+      });
+    });
+
+    // Start observing the 'data-open' attribute for changes
+    observer.observe(menu, {
+      attributes: true, // Configure the observer to listen for changes in attributes
+    });
   };
 
   scaleOpenMenuButtonOnScroll();
