@@ -86,15 +86,15 @@ const { colorMode = "dark" } = Astro.props;
   const menuOverlay = document.querySelector("#menu-overlay") as HTMLDivElement;
 
   function openMenu() {
-    menu.setAttribute("data-open", "true"); // Set data-open attribute to true
-    openMenuButton.classList.remove("scale-100"); // Scale down the button
+    menu.setAttribute("data-open", "true");
+    openMenuButton.classList.remove("scale-100");
     menuOverlay.classList.toggle("inset-0");
     menuOverlay.classList.toggle("opacity-0");
     menuOverlay.classList.toggle("opacity-100");
     setTimeout(() => {
       menu.classList.toggle("-left-full");
       menu.classList.toggle("left-0");
-      menu.setAttribute("data-open", "true"); // Set data attribute when opening
+      menu.setAttribute("data-open", "true");
     }, 300);
     setTimeout(() => {
       closeMenuButton.classList.toggle("scale-0");
@@ -102,17 +102,15 @@ const { colorMode = "dark" } = Astro.props;
   }
 
   function closeMenu() {
-    menu.setAttribute("data-open", "false"); // Set data-open attribute to false
-    openMenuButton.classList.add("scale-100"); // Scale up the button
+    menu.setAttribute("data-open", "false");
+    openMenuButton.classList.add("scale-100");
     closeMenuButton.classList.toggle("scale-0");
     menu.classList.toggle("-left-full");
     menu.classList.toggle("left-0");
-    menu.setAttribute("data-open", "false"); // Set data attribute when closing
-
+    menu.setAttribute("data-open", "false");
     setTimeout(() => {
       menuOverlay.classList.toggle("opacity-100");
       menuOverlay.classList.toggle("opacity-0");
-
       setTimeout(() => {
         menuOverlay.classList.toggle("inset-0");
       }, 500);
@@ -124,6 +122,11 @@ const { colorMode = "dark" } = Astro.props;
     openMenuButton.addEventListener("click", openMenu);
     closeMenuButton.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", closeMenu);
+    document.addEventListener("keydown", (event) => {
+      if (event.keyCode === 27) {
+        closeMenu();
+      }
+    });
   }
 
   document.addEventListener("DOMContentLoaded", init);
