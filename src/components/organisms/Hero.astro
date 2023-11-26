@@ -1,4 +1,5 @@
 ---
+import CustomCursor from "../atoms/CustomCursor.astro";
 const { title, tagline, image, url } = Astro.props;
 const imageUrl = image ?? "https://via.placeholder.com/1200x800";
 ---
@@ -15,9 +16,34 @@ const imageUrl = image ?? "https://via.placeholder.com/1200x800";
       <h3 class="text-h5 font-body">{title ?? "Project title"}</h3>
     </div>
     <div
+      id="hero-image"
       style={`background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.50) 100%), url('${imageUrl}') no-repeat center/cover;`}
-      class="group-hover:brightness-90 transition-all duration-500 ease-in-out absolute inset-0 z-0"
+      class="group-hover:brightness-90 transition-all duration-500 ease-in-out absolute inset-0 z-0 cursor-none"
     >
     </div>
+    <CustomCursor />
   </a>
 </section>
+
+<script>
+  const customCursor = document.getElementById("custom-cursor");
+
+  if (customCursor) {
+    const image = document.querySelector("#hero") as HTMLDivElement;
+
+    image.addEventListener("mousemove", (e: MouseEvent) => {
+      customCursor.classList.remove("scale-0");
+      customCursor.style.left = `${e.clientX}px`;
+      customCursor.style.top = `${e.clientY}px`;
+    });
+
+    image.addEventListener("mouseout", () => {
+      customCursor.classList.add("scale-0");
+    });
+
+    document.addEventListener("mousemove", (e: MouseEvent) => {
+      customCursor.style.left = `${e.clientX}px`;
+      customCursor.style.top = `${e.clientY}px`;
+    });
+  }
+</script>
