@@ -127,7 +127,7 @@ h6,
 /* Every third item should be a square image */
 .project-preview:nth-of-type(6n + 3) img,
 .project-preview:nth-of-type(6n + 6) img {
-  @apply aspect-video;
+  @apply md:aspect-video;
 }
 
 html.bg-black input,
