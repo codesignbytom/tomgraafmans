@@ -13,5 +13,5 @@ content: >-
 
   Beweegpartner assists schools in addressing the shortage of sports teachers. [Enflow](https://www.enflow.nl) asked me to create multiple landing pages that best bring forward the vision and new branding of Beweegpartner.
 gallery:
-  - /img/work/beweegpartner/beweegpartner-full.webp
+  - /img/work/beweegpartner/beweegpartner-home-full.webp
 ---
