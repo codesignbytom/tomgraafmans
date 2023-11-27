@@ -19,15 +19,40 @@ const gallery = Array.from(
   )
 );
 
+// Fetch all projects
 const allProjects = await getCollection("work");
+
+// Function to get the last selected project from session storage
+function getLastProject() {
+  if (typeof window !== "undefined") {
+    return sessionStorage.getItem("lastProject");
+  }
+  return null;
+}
+
+// Function to set the last selected project in session storage
+function setLastProject(slug: string) {
+  if (typeof window !== "undefined") {
+    sessionStorage.setItem("lastProject", slug);
+  }
+}
+
+// Get the last project
+const lastProjectSlug = getLastProject();
+
+// Filter projects
 const filteredProjects = allProjects.filter(
-  (project) => project.slug !== frontmatter.slug
+  (project) =>
+    project.slug !== Astro.url.pathname && project.slug !== lastProjectSlug
 );
 
 let randomProject;
 if (filteredProjects.length > 0) {
+  // Select a random project
   const randomIndex = Math.floor(Math.random() * filteredProjects.length);
   randomProject = filteredProjects[randomIndex];
+  // Set this project as the last selected project
+  setLastProject(randomProject.slug);
 } else {
   randomProject = null;
 }
