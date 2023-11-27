@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:08:46.343Z
-thumbnail: /img/work/participatiekracht/participatiekracht-thumb-16-9.webp
+thumbnail: /img/work/participatiekracht/participatiekracht-thumb.webp
 title: ParticipatieKracht
 tagline: Exceptionally strong in engagement
 figmaUrl: https://www.figma.com/file/xDhwlgQLQSzbEIhIhSvgo5/ParticipatieKracht?type=design&t=WVt6hIWnWI6r03TA-6

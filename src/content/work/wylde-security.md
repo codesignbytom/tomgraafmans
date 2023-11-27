@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:08:55.200Z
-thumbnail: /img/work/wylde-security/wylde-security-thumb-16-9.webp
+thumbnail: /img/work/wylde-security/wylde-security-thumb.webp
 title: Wylde Security
 tagline: Protect your business with expert audit services
 figmaUrl: https://www.figma.com/file/RLQ6vVnM2iKB3FnzRNnNUq/Wylde-Security?type=design&t=WVt6hIWnWI6r03TA-6

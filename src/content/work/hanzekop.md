@@ -1,6 +1,6 @@
 ---
 pubDate: 2023-11-09T22:03:32.571Z
-thumbnail: /img/work/hanzekop/hanzekop-thumb-16-9.webp
+thumbnail: /img/work/hanzekop/hanzekop-thumb.webp
 title: Hanzekop Holiday Homes
 tagline: Find your peace in Stavoren
 figmaUrl: https://www.figma.com/file/BPZOMY6oXaAeIdwpVqYbqW/Hanzekop?type=design&t=WVt6hIWnWI6r03TA-6
