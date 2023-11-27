@@ -18,7 +18,6 @@
 
 body {
   font-size: clamp(1rem, 1vw, 1.125rem);
-  @apply font-normal leading-relaxed font-body;
 }
 
 h1,
