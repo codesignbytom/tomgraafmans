@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { nextMonthToLocale } from "../assets/scripts/site";
 import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
+import ContactItemLink from "../components/atoms/ContactItemLink.astro";
 ---
 
 <Layout pageTitle="contact" metaTitle="Contact" colorMode="dark">
@@ -85,90 +86,70 @@ import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
             class="aspect-square sm:aspect-video object-cover w-32 h-32 rounded-full"
           />
 
-          <div class="flex flex-col gap-4">
-            <h5 class="text-caption--sm opacity-50">Availability</h5>
-            <div
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors cursor-pointer select-none"
-            >
-              <i class="ph ph-calendar"></i>
-              {
-                AVAILABILITY === true ? (
-                  <span>Available for work in {nextMonthToLocale}</span>
-                ) : (
-                  <span>Available for work in {AVAILABILITY_DATE}</span>
-                )
-              }
+          <div class="grid sm:grid-cols-2 gap-12 lg:grid-cols-1">
+            <div class="flex flex-col gap-4">
+              <h5 class="text-caption--sm opacity-50">Availability</h5>
+              <div
+                class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors select-none"
+              >
+                <i class="ph ph-calendar"></i>
+                {
+                  AVAILABILITY === true ? (
+                    <span>Available for work in {nextMonthToLocale}</span>
+                  ) : (
+                    <span>Available for work in {AVAILABILITY_DATE}</span>
+                  )
+                }
+              </div>
             </div>
-          </div>
-          <div class="flex flex-col gap-4">
-            <h5 class="text-caption--sm opacity-50">Contact details</h5>
-            <a
-              href="mailto:info@tomgraafmans.com"
-              target="_blank"
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-            >
-              <i class="ph-fill ph-envelope"></i>
-              <span>info@tomgraafmans.com</span>
-            </a>
-            <a
-              href="callto:+31622785377"
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-            >
-              <i class="ph-fill ph-phone"></i>
-              <span>+31 6 22 78 53 77</span>
-            </a>
-          </div>
-          <div class="flex flex-col gap-4">
-            <h5 class="text-caption--sm opacity-50">Other details</h5>
-            <a
-              href="https://en.wikipedia.org/wiki/Netherlands"
-              target="_blank"
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-            >
-              <i class="ph-fill ph-house"></i>
-              <span>Based in The Netherlands</span>
-            </a>
-            <div
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-            >
-              <i class="ph-fill ph-clock"></i>
-              <span id="time-display"></span>
+            <div class="flex flex-col gap-4">
+              <h5 class="text-caption--sm opacity-50">Contact details</h5>
+              <ContactItemLink
+                text="Based in the Netherlands"
+                icon="envelope"
+                url="mailto:info@tomgraafmans.com"
+                text="info@tomgraafmans.com"
+              />
+              <ContactItemLink
+                text="Based in the Netherlands"
+                icon="phone"
+                url="callto:+31622785377"
+                text="+31 6 22 78 53 77"
+              />
             </div>
-          </div>
-          <div class="flex flex-col gap-4">
-            <h5 class="text-caption--sm opacity-50">My socials</h5>
-            <a
-              href="https://www.linkedin.com/in/tomgraafmans/"
-              target="_blank"
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-            >
-              <i class="ph-fill ph-linkedin-logo"></i>
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://dribbble.com/varvino"
-              target="_blank"
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-            >
-              <i class="ph-fill ph-dribbble-logo"></i>
-              <span>Dribbble</span>
-            </a>
-            <a
-              href="https://behance.net/tomgraafmans"
-              target="_blank"
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-            >
-              <i class="ph-fill ph-behance-logo"></i>
-              <span>Behance</span>
-            </a>
-            <a
-              href="https://github.com/xarxino"
-              target="_blank"
-              class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-            >
-              <i class="ph-fill ph-github-logo"></i>
-              <span>GitHub</span>
-            </a>
+            <div class="flex flex-col gap-4">
+              <h5 class="text-caption--sm opacity-50">Other details</h5>
+              <ContactItemLink
+                text="Based in the Netherlands"
+                icon="house"
+                url="https://www.en.wikipedia.org/wiki/Netherlands"
+                external
+              />
+              <ContactItemLink link={false} id="time-display" icon="clock" />
+            </div>
+            <div class="flex flex-col gap-4">
+              <h5 class="text-caption--sm opacity-50">My socials</h5>
+              <ContactItemLink
+                text="LinkedIn"
+                url="https://www.linkedin.com/in/tomgraafmans"
+                external
+              />
+              <ContactItemLink
+                text="Dribbble"
+                url="https://www.dribbble.com/varvino"
+                external
+              />
+              <ContactItemLink
+                text="Behance"
+                url="https://www.behance.net/tomgraafmans"
+                external
+              />
+              <ContactItemLink
+                text="Github"
+                url="https://www.github.com/xarxino"
+                external
+              />
+            </div>
           </div>
         </div>
       </div>
