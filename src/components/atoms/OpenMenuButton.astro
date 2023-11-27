@@ -17,48 +17,51 @@
     "#open-menu-button"
   ) as HTMLButtonElement;
   const menu = document.querySelector("#menu") as HTMLDivElement;
-  
+
   const scaleOpenMenuButtonOnScroll = () => {
     let lastScrollTop = 0;
     const scrollThreshold = window.innerHeight * 0.3;
 
-    const handlePageLoad = () => {
-      const sessionState =
-        sessionStorage.getItem("scrolledPastThreshold") === "true";
-      if (sessionState && window.scrollY > scrollThreshold) {
+    const updateButtonScale = (scaleUp: boolean) => {
+      if (scaleUp) {
         openMenuButton.classList.add("scale-100");
       } else {
         openMenuButton.classList.remove("scale-100");
-        sessionStorage.removeItem("scrolledPastThreshold");
       }
     };
 
+    const handlePageLoad = () => {
+      const scrolledPastThreshold = window.scrollY > scrollThreshold;
+      sessionStorage.setItem(
+        "scrolledPastThreshold",
+        scrolledPastThreshold.toString()
+      );
+      updateButtonScale(scrolledPastThreshold);
+    };
+
     const handleScroll = () => {
-      let currentScrollTop = window.scrollY;
+      const currentScrollTop = window.scrollY;
       const menuIsOpen = menu.getAttribute("data-open") === "true";
 
       if (menuIsOpen) {
-        // Prevent scaling up the button if the menu is open
-        return;
+        return; // Do nothing if the menu is open
       }
 
-      if (
-        currentScrollTop > lastScrollTop &&
-        currentScrollTop > scrollThreshold
-      ) {
-        openMenuButton.classList.add("scale-100");
-        sessionStorage.setItem("scrolledPastThreshold", "true");
-      } else if (currentScrollTop < lastScrollTop) {
-        openMenuButton.classList.remove("scale-100");
-        sessionStorage.removeItem("scrolledPastThreshold");
-      }
+      const scrolledPastThreshold =
+        currentScrollTop > lastScrollTop && currentScrollTop > scrollThreshold;
+      sessionStorage.setItem(
+        "scrolledPastThreshold",
+        scrolledPastThreshold.toString()
+      );
+      updateButtonScale(scrolledPastThreshold);
+
       lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
     };
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("load", handlePageLoad);
 
-    // Adding a MutationObserver to watch for changes in the 'data-open' attribute of the menu
+    // MutationObserver for 'data-open' attribute changes of the menu
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (
@@ -66,20 +69,20 @@
           mutation.attributeName === "data-open"
         ) {
           const isOpen = menu.getAttribute("data-open") === "true";
-          if (isOpen) {
-            // Scale down the button when menu is open
-            openMenuButton.classList.remove("scale-100");
+          if (!isOpen) {
+            // Update scale based on scroll position when menu is closed
+            const scrolledPastThreshold = window.scrollY > scrollThreshold;
+            updateButtonScale(scrolledPastThreshold);
           } else {
-            // Scale up the button when menu is closed
-            openMenuButton.classList.add("scale-100");
+            // Always scale down when menu is open
+            openMenuButton.classList.remove("scale-100");
           }
         }
       });
     });
 
-    // Start observing the 'data-open' attribute for changes
     observer.observe(menu, {
-      attributes: true, // Configure the observer to listen for changes in attributes
+      attributes: true,
     });
   };
 
