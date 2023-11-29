@@ -15,7 +15,11 @@ import "@phosphor-icons/web/fill";
 
 const permalink = SITE_URL;
 const description = SITE_DESCRIPTION;
-const { metaTitle = "Developer & Designer", colorMode = "light" } = Astro.props;
+const {
+  metaTitle = "Developer & Designer",
+  colorMode = "light",
+  pageTitle,
+} = Astro.props;
 const title = `${SITE_NAME} • ${metaTitle}`;
 
 let isDarkMode = setColorMode(colorMode) === "dark";

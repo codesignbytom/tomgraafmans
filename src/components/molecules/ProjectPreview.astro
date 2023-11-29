@@ -34,26 +34,8 @@ const uniqueTags = Array.from(
 </div>
 
 <script>
-  const customCursor = document.getElementById("custom-cursor");
-
-  if (customCursor) {
-    document.querySelectorAll(".project-preview img").forEach((image) => {
-      if (image instanceof HTMLImageElement) {
-        image.addEventListener("mousemove", (e: MouseEvent) => {
-          customCursor.classList.remove("scale-0");
-          customCursor.style.left = `${e.clientX}px`;
-          customCursor.style.top = `${e.clientY}px`;
-        });
-
-        image.addEventListener("mouseout", () => {
-          customCursor.classList.add("scale-0");
-        });
-      }
-    });
-
-    document.addEventListener("mousemove", (e: MouseEvent) => {
-      customCursor.style.left = `${e.clientX}px`;
-      customCursor.style.top = `${e.clientY}px`;
-    });
-  }
+  import { handleMouseOver } from "../../assets/scripts/mouseOver";
+  document.addEventListener("astro:page-load", () => {
+    handleMouseOver(".project-preview img");
+  });
 </script>

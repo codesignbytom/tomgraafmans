@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 const { title, description, permalink } = Astro.props;
 ---
 
@@ -27,3 +29,5 @@ const { title, description, permalink } = Astro.props;
 <meta property="twitter:image" content="/social-cover.png" />
 
 <meta name="generator" content={Astro.generator} />
+
+<ViewTransitions />

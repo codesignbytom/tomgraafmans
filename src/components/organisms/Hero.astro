@@ -4,7 +4,7 @@ const { title, tagline, image, url } = Astro.props;
 const imageUrl = image ?? "https://via.placeholder.com/1200x800";
 ---
 
-<section id="hero">
+<section class="hero">
   <a
     href={url}
     class="min-h-[60vh] md:min-h-[80vh] relative group flex items-end py-8 md:py-10 lg:py-12"
@@ -26,24 +26,8 @@ const imageUrl = image ?? "https://via.placeholder.com/1200x800";
 </section>
 
 <script>
-  const customCursor = document.getElementById("custom-cursor");
-
-  if (customCursor) {
-    const image = document.querySelector("#hero") as HTMLDivElement;
-
-    image.addEventListener("mousemove", (e: MouseEvent) => {
-      customCursor.classList.remove("scale-0");
-      customCursor.style.left = `${e.clientX}px`;
-      customCursor.style.top = `${e.clientY}px`;
-    });
-
-    image.addEventListener("mouseout", () => {
-      customCursor.classList.add("scale-0");
-    });
-
-    document.addEventListener("mousemove", (e: MouseEvent) => {
-      customCursor.style.left = `${e.clientX}px`;
-      customCursor.style.top = `${e.clientY}px`;
-    });
-  }
+  import { handleMouseOver } from "../../assets/scripts/mouseOver";
+  document.addEventListener("astro:page-load", () => {
+    handleMouseOver(".hero");
+  });
 </script>

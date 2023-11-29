@@ -11,8 +11,7 @@ const { colorMode = "dark" } = Astro.props;
   <div class="container flex items-center justify-between">
     <Logo />
     <div
-      id="menu"
-      class="fixed top-0 z-[900] w-full h-full max-w-xl py-4 leading-none text-black transition-all duration-500 ease-in-out bg-white -left-full"
+      class="menu fixed top-0 z-[900] w-full h-full max-w-xl py-4 leading-none text-black transition-all duration-500 ease-in-out bg-white -left-full"
     >
       <div class="container flex flex-col justify-between h-full gap-12 py-28">
         <div class="flex flex-col gap-12">
@@ -21,8 +20,7 @@ const { colorMode = "dark" } = Astro.props;
               Navigation
             </div>
             <button
-              id="close-menu-button"
-              class="absolute flex items-center justify-center text-2xl text-white transition-[transform, colors] duration-500 ease-in-out scale-0 rounded-full top-6 right-6 bg-primary-600 h-14 w-14 hover:bg-primary-700"
+              class="close-menu-button absolute flex items-center justify-center text-2xl text-white transition-[transform, colors] duration-500 ease-in-out scale-0 rounded-full top-6 right-6 bg-primary-600 h-14 w-14 hover:bg-primary-700"
             >
               <i class="ph ph-x"></i>
             </button>
@@ -56,16 +54,14 @@ const { colorMode = "dark" } = Astro.props;
       </div>
 
       <button
-        id="open-menu-text"
-        class=`text-caption--sm hover:text-primary-600 transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:w-1.5 before:h-1.5 before:rounded-full before:top-50% hover:before:bg-primary-600 ${colorMode === "dark" ? "before:bg-white" : "before:bg-black"} md:hidden`
+        class=`open-menu-text text-caption--sm hover:text-primary-600 transition-all duration-300 before:duration-300 relative flex items-center justify-center before:absolute before:-left-4 before:w-1.5 before:h-1.5 before:rounded-full before:top-50% hover:before:bg-primary-600 ${colorMode === "dark" ? "before:bg-white" : "before:bg-black"} md:hidden`
       >
         Menu
       </button>
     </div>
 
     <div
-      id="menu-overlay"
-      class="fixed z-[850] transition-all duration-500 ease-in-out opacity-0 bg-black/50"
+      class="menu-overlay fixed z-[850] transition-all duration-500 ease-in-out opacity-0 bg-black/50"
     >
     </div>
   </div>
@@ -73,19 +69,12 @@ const { colorMode = "dark" } = Astro.props;
 </header>
 
 <script>
-  const menu = document.querySelector("#menu") as HTMLDivElement;
-  const openMenuButton = document.querySelector(
-    "#open-menu-button"
-  ) as HTMLButtonElement;
-  const openMenuText = document.querySelector(
-    "#open-menu-text"
-  ) as HTMLDivElement;
-  const closeMenuButton = document.querySelector(
-    "#close-menu-button"
-  ) as HTMLButtonElement;
-  const menuOverlay = document.querySelector("#menu-overlay") as HTMLDivElement;
-
-  function openMenu() {
+  function openMenu(
+    menu: any,
+    openMenuButton: any,
+    closeMenuButton: any,
+    menuOverlay: any
+  ) {
     menu.setAttribute("data-open", "true");
     openMenuButton.classList.remove("scale-100");
     menuOverlay.classList.toggle("inset-0");
@@ -101,7 +90,12 @@ const { colorMode = "dark" } = Astro.props;
     }, 400);
   }
 
-  function closeMenu() {
+  function closeMenu(
+    menu: any,
+    openMenuButton: any,
+    closeMenuButton: any,
+    menuOverlay: any
+  ) {
     menu.setAttribute("data-open", "false");
     openMenuButton.classList.add("scale-100");
     closeMenuButton.classList.toggle("scale-0");
@@ -118,16 +112,41 @@ const { colorMode = "dark" } = Astro.props;
   }
 
   function init() {
-    openMenuText.addEventListener("click", openMenu);
-    openMenuButton.addEventListener("click", openMenu);
-    closeMenuButton.addEventListener("click", closeMenu);
-    menuOverlay.addEventListener("click", closeMenu);
+    // Re-query DOM elements
+    const menu = document.querySelector(".menu") as HTMLDivElement;
+    const openMenuButton = document.querySelector(
+      ".open-menu-button"
+    ) as HTMLButtonElement;
+    const openMenuText = document.querySelector(
+      ".open-menu-text"
+    ) as HTMLButtonElement;
+    const closeMenuButton = document.querySelector(
+      ".close-menu-button"
+    ) as HTMLButtonElement;
+    const menuOverlay = document.querySelector(
+      ".menu-overlay"
+    ) as HTMLDivElement;
+
+    // Add event listeners using the new references
+    openMenuText.addEventListener("click", () =>
+      openMenu(menu, openMenuButton, closeMenuButton, menuOverlay)
+    );
+    openMenuButton.addEventListener("click", () =>
+      openMenu(menu, openMenuButton, closeMenuButton, menuOverlay)
+    );
+    closeMenuButton.addEventListener("click", () =>
+      closeMenu(menu, openMenuButton, closeMenuButton, menuOverlay)
+    );
+    menuOverlay.addEventListener("click", () =>
+      closeMenu(menu, openMenuButton, closeMenuButton, menuOverlay)
+    );
+
     document.addEventListener("keydown", (event) => {
       if (event.keyCode === 27) {
-        closeMenu();
+        closeMenu(menu, openMenuButton, closeMenuButton, menuOverlay);
       }
     });
   }
 
-  document.addEventListener("DOMContentLoaded", init);
+  document.addEventListener("astro:page-load", init);
 </script>

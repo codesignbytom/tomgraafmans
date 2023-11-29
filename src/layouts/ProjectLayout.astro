@@ -19,10 +19,8 @@ const gallery = Array.from(
   )
 );
 
-// Fetch all projects
 const allProjects = await getCollection("work");
 
-// Function to get the last selected project from session storage
 function getLastProject() {
   if (typeof window !== "undefined") {
     return sessionStorage.getItem("lastProject");
@@ -30,17 +28,14 @@ function getLastProject() {
   return null;
 }
 
-// Function to set the last selected project in session storage
 function setLastProject(slug: string) {
   if (typeof window !== "undefined") {
     sessionStorage.setItem("lastProject", slug);
   }
 }
 
-// Get the last project
 const lastProjectSlug = getLastProject();
 
-// Filter projects
 const filteredProjects = allProjects.filter(
   (project) =>
     project.slug !== Astro.url.pathname && project.slug !== lastProjectSlug
@@ -58,7 +53,11 @@ if (filteredProjects.length > 0) {
 }
 ---
 
-<Layout pageTitle="project" metaTitle={frontmatter.title} colorMode={colorMode}>
+<Layout
+  pageTitle={frontmatter.title}
+  metaTitle={frontmatter.title}
+  colorMode={colorMode}
+>
   <section>
     <img
       class="min-h-[60vh] md:min-h-[80vh] object-cover w-full md:h-[60vh] lg:h-[70vh] xl:h-[80vh]"
