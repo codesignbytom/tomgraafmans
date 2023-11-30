@@ -20,28 +20,8 @@ const gallery = Array.from(
 );
 
 const allProjects = await getCollection("work");
-const currentProject = allProjects.find(
-  (project) => project.slug === frontmatter.slug
-);
 
-// Fisher-Yates shuffle algorithm
-for (let i = allProjects.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [allProjects[i], allProjects[j]] = [allProjects[j], allProjects[i]];
-}
-
-let randomProject;
-do {
-  randomProject = allProjects.pop();
-} while (randomProject === currentProject);
-
-// If allProjects is empty, shuffle again
-if (allProjects.length === 0) {
-  for (let i = allProjects.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [allProjects[i], allProjects[j]] = [allProjects[j], allProjects[i]];
-  }
-}
+const randomProject = allProjects[Math.floor(Math.random() * allProjects.length)];
 ---
 
 <Layout
