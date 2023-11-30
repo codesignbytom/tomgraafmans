@@ -1,3 +1,9 @@
+/**
+ * Handles the mouse over event for a specific element.
+ *
+ * @param {string} hoveredElement - The element that is being hovered over.
+ * @return {void} This function does not return anything.
+ */
 export function handleMouseOver(hoveredElement: string) {
   const customCursors =
     document.querySelectorAll<HTMLElement>(".custom-cursor");
