@@ -21,7 +21,8 @@ const gallery = Array.from(
 
 const allProjects = await getCollection("work");
 
-const randomProject = allProjects[Math.floor(Math.random() * allProjects.length)];
+const randomProject =
+  allProjects[Math.floor(Math.random() * allProjects.length)];
 ---
 
 <Layout
