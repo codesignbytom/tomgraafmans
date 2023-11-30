@@ -1,8 +1,8 @@
 ---
 import Navigation from "../molecules/Navigation.astro";
 import Logo from "../atoms/Logo.astro";
-import MySocialLink from "../atoms/MySocialLink.astro";
 import OpenMenuButton from "../atoms/OpenMenuButton.astro";
+import Socials from "../molecules/Socials.astro";
 
 const { colorMode = "dark" } = Astro.props;
 ---
@@ -32,17 +32,7 @@ const { colorMode = "dark" } = Astro.props;
             My socials
           </div>
           <div class="flex flex-wrap items-center gap-6">
-            <MySocialLink platform="linkedin" username="tomgraafmans" />
-            <MySocialLink platform="dribbble" username="varvino" />
-            <MySocialLink platform="behance" username="tomgraafmans" />
-            <MySocialLink platform="github" username="xarxino" />
-            <MySocialLink
-              platformDisplayName="Read.cv"
-              platform="read"
-              platformDomain="cv"
-              platformIcon="read-cv"
-              username="tomgraafmans"
-            />
+            <Socials size="small" />
           </div>
         </div>
       </div>

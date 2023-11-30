@@ -2,7 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { nextMonthToLocale } from "../assets/scripts/site";
 import { AVAILABILITY, AVAILABILITY_DATE } from "../consts";
-import ContactItemLink from "../components/atoms/ContactItemLink.astro";
+import SocialsLink from "../components/atoms/SocialsLink.astro";
+import Socials from "../components/molecules/Socials.astro";
 ---
 
 <Layout pageTitle="contact" metaTitle="Contact" colorMode="dark">
@@ -104,13 +105,13 @@ import ContactItemLink from "../components/atoms/ContactItemLink.astro";
             </div>
             <div class="flex flex-col gap-4">
               <h5 class="text-caption--sm opacity-50">Contact details</h5>
-              <ContactItemLink
+              <SocialsLink
                 text="Based in the Netherlands"
                 icon="envelope"
                 url="mailto:info@tomgraafmans.com"
                 text="info@tomgraafmans.com"
               />
-              <ContactItemLink
+              <SocialsLink
                 text="Based in the Netherlands"
                 icon="phone"
                 url="callto:+31622785377"
@@ -119,36 +120,17 @@ import ContactItemLink from "../components/atoms/ContactItemLink.astro";
             </div>
             <div class="flex flex-col gap-4">
               <h5 class="text-caption--sm opacity-50">Other details</h5>
-              <ContactItemLink
+              <SocialsLink
                 text="Based in the Netherlands"
                 icon="house"
                 url="https://en.wikipedia.org/wiki/Netherlands"
                 external
               />
-              <ContactItemLink link={false} id="time-display" icon="clock" />
+              <SocialsLink link={false} id="time-display" icon="clock" />
             </div>
             <div class="flex flex-col gap-4">
               <h5 class="text-caption--sm opacity-50">My socials</h5>
-              <ContactItemLink
-                text="LinkedIn"
-                url="https://www.linkedin.com/in/tomgraafmans"
-                external
-              />
-              <ContactItemLink
-                text="Dribbble"
-                url="https://www.dribbble.com/varvino"
-                external
-              />
-              <ContactItemLink
-                text="Behance"
-                url="https://www.behance.net/tomgraafmans"
-                external
-              />
-              <ContactItemLink
-                text="Github"
-                url="https://www.github.com/xarxino"
-                external
-              />
+              <Socials />
             </div>
           </div>
         </div>

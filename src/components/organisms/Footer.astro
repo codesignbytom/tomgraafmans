@@ -1,7 +1,7 @@
 ---
 import Logo from "../atoms/Logo.astro";
 import Navigation from "../molecules/Navigation.astro";
-import MySocialLink from "../atoms/MySocialLink.astro";
+import Socials from "../molecules/Socials.astro";
 
 const year = new Date().getFullYear();
 ---
@@ -36,33 +36,7 @@ const year = new Date().getFullYear();
         <div
           class="flex flex-wrap items-center gap-4 md:flex-nowrap md:justify-end"
         >
-          <MySocialLink
-            position="footer"
-            platform="linkedin"
-            username="in/tomgraafmans"
-          />
-          <MySocialLink
-            position="footer"
-            platform="dribbble"
-            username="varvino"
-          />
-          <MySocialLink
-            position="footer"
-            platform="behance"
-            username="tomgraafmans"
-          />
-          <MySocialLink
-            position="footer"
-            platform="github"
-            username="xarxino"
-          />
-          <MySocialLink
-            position="footer"
-            platform="read"
-            platformDomain="cv"
-            platformIcon="read-cv"
-            username="tomgraafmans"
-          />
+          <Socials size="large" textBoolean={false} iconStyle="outline" />
         </div>
       </div>
     </div>
