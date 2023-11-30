@@ -5,6 +5,7 @@ import { marked } from "marked";
 import Layout from "./Layout.astro";
 import Tag from "../../src/components/atoms/Tag.astro";
 import Button from "../components/atoms/Button.astro";
+import CustomCursor from "../components/atoms/CustomCursor.astro";
 
 const { frontmatter, colorMode = "dark" } = Astro.props;
 const contentHtml = marked(frontmatter.content);
@@ -21,7 +22,8 @@ const gallery = Array.from(
 
 const allProjects = await getCollection("work");
 
-const randomProject = allProjects[Math.floor(Math.random() * allProjects.length)];
+const randomProject =
+  allProjects[Math.floor(Math.random() * allProjects.length)];
 ---
 
 <Layout
@@ -96,35 +98,37 @@ const randomProject = allProjects[Math.floor(Math.random() * allProjects.length)
       }
     </div>
   </section>
-  <section id="next-case">
-    <div class="flex flex-col">
+  <section class="next-case">
+    <a
+      href={`/work/${randomProject?.slug}`}
+      class="min-h-[60vh] md:min-h-[80vh] relative group flex items-end py-8 md:py-10 lg:py-12"
+    >
       <div
-        class={`container pt-2 md:pt-4 pb-8 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-24 2xl:pb-28 border-t border-black ${
+        class=`container flex flex-col-reverse gap-1 lg:gap-2 text-white relative z-20 lg:cursor-none ${
           colorMode ? "border-white" : ""
-        }`}
+        }`
       >
-        <h2>Next case</h2>
+        <h1 class="text-h2">
+          {randomProject?.data.tagline ?? "Project tagline"}
+        </h1>
+        <h3 class="text-h5 font-body">
+          {randomProject?.data.title ?? "Project title"}
+        </h3>
       </div>
-      <a
-        href={`/work/${randomProject?.slug}`}
-        class="min-h-[60vh] md:min-h-[80vh] relative group flex items-end py-8 md:py-10 lg:py-12"
+      <div
+        id="hero-image"
+        style={`background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.50) 100%), url('${randomProject?.data.thumbnail}') no-repeat center/cover;`}
+        class="group-hover:brightness-90 transition-all duration-500 ease-in-out absolute inset-0 z-0 lg:cursor-none"
       >
-        <div
-          class="container relative z-20 flex flex-col-reverse gap-1 text-white lg:gap-2"
-        >
-          <h3 class="text-h5 font-body">
-            {randomProject?.data.title ?? "Project title"}
-          </h3>
-          <h1 class="text-h2">
-            {randomProject?.data.tagline ?? "Project tagline"}
-          </h1>
-        </div>
-        <div
-          style={`background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.50) 100%), url('${randomProject?.data.thumbnail}') no-repeat center/cover;`}
-          class="absolute inset-0 z-0 transition-all duration-500 ease-in-out group-hover:brightness-90"
-        >
-        </div>
-      </a>
-    </div>
+      </div>
+      <CustomCursor />
+    </a>
   </section>
 </Layout>
+
+<script>
+  import { handleMouseOver } from "../assets/scripts/mouseOver";
+  document.addEventListener("astro:page-load", () => {
+    handleMouseOver(".next-case");
+  });
+</script>
