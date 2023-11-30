@@ -28,9 +28,9 @@ let isDarkMode = setColorMode(colorMode) === "dark";
 <!doctype html>
 <html
   lang="nl"
-  {...isDarkMode
-    ? { class: "font-normal leading-relaxed font-body bg-black text-white" }
-    : { class: "font-normal leading-relaxed font-body" }}
+  class={`font-normal leading-relaxed font-body scroll-smooth ${
+    isDarkMode ? "bg-black text-white" : ""
+  }`}
 >
   <Head {title} {description} {permalink} />
   <body>
