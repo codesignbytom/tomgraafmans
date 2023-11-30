@@ -4,7 +4,12 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import ProjectPreview from "../components/molecules/ProjectPreview.astro";
 
-const allProjects = await getCollection("work");
+const allProjects = (await getCollection("work"))
+  .filter((project) => project.data.pubDate)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
 ---
 
 <Layout pageTitle="work" metaTitle="Work">

@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-11-09T22:03:24.469Z
+pubDate: 2023-09-08
 thumbnail: /img/work/findingtheseoul/findingtheseoul-thumb.webp
 title: Finding the Seoul
 tagline: Ever thought about a holiday in South Korea?

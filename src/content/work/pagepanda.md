@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-11-09T22:03:35.456Z
+pubDate: 2023-10-17
 thumbnail: /img/work/pagepanda/pagepanda-thumb.webp
 title: PagePanda
 tagline: Easily create your ideal landing page

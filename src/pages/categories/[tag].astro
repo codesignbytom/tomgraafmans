@@ -4,7 +4,12 @@ import Layout from "../../layouts/Layout.astro";
 import ProjectPreview from "../../components/molecules/ProjectPreview.astro";
 
 export async function getStaticPaths() {
-  const allProjects = await getCollection("work");
+  const allProjects = (await getCollection("work"))
+    .filter((project) => project.data.pubDate)
+    .sort(
+      (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+    );
   const uniqueTags = [
     ...new Set(allProjects.flatMap((project) => project.data.tags)),
   ];
@@ -24,7 +29,9 @@ const { projects } = Astro.props;
 ---
 
 <Layout pageTitle="tag" metaTitle={tag.charAt(0).toUpperCase() + tag.slice(1)}>
-  <div class="container flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 py-8 sm:py-10 md:py-12 2xl:py-16">
+  <div
+    class="container flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 py-8 sm:py-10 md:py-12 2xl:py-16"
+  >
     <h1 class="capitalize-first-letter">{tag}</h1>
     <div
       class="flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"

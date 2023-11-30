@@ -10,7 +10,12 @@ import Button from "../components/atoms/Button.astro";
 import SkillPreview from "../components/molecules/SkillPreview.astro";
 import Testimonial from "../components/molecules/Testimonial.astro";
 
-const allProjects = await getCollection("work");
+const allProjects = (await getCollection("work"))
+  .filter((project) => project.data.pubDate)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
 const allTestimonials = await getCollection("testimonials");
 const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
 ---
@@ -33,7 +38,9 @@ const firstProject = allProjects.length > 0 ? allProjects[0] : (null as any);
       <h3 class="order-2 text-3xl md:text-4xl lg:text-5xl !leading-tight">
         {SITE_DESCRIPTION}
       </h3>
-      <h4 class="order-1 text-xl lg:text-2xl font-body md:whitespace-nowrap pb-3 border-b border-black h-min">
+      <h4
+        class="order-1 text-xl lg:text-2xl font-body md:whitespace-nowrap pb-3 border-b border-black h-min"
+      >
         My story
       </h4>
     </div>

@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-11-09T22:03:32.571Z
+pubDate: 2022-11-12
 thumbnail: /img/work/hanzekop/hanzekop-thumb.webp
 title: Hanzekop Holiday Homes
 tagline: Find your peace in Stavoren

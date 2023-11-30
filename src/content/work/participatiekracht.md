@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-11-09T22:08:46.343Z
+pubDate: 2023-05-03
 thumbnail: /img/work/participatiekracht/participatiekracht-thumb.webp
 title: ParticipatieKracht
 tagline: Exceptionally strong in engagement

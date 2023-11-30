@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-11-09T22:02:35.339Z
+pubDate: 2023-03-15
 thumbnail: /img/work/beweegpartner/beweegpartner-thumb.webp
 title: Beweegpartner
 tagline: Get it moving with a new landing page

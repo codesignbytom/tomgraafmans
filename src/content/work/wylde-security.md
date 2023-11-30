@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-11-09T22:08:55.200Z
+pubDate: 2022-04-01
 thumbnail: /img/work/wylde-security/wylde-security-thumb.webp
 title: Wylde Security
 tagline: Protect your business with expert audit services

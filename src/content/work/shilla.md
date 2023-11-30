@@ -1,5 +1,5 @@
 ---
-pubDate: 2023-11-09T22:08:51.651Z
+pubDate: 2021-09-02
 thumbnail: /img/work/shilla/shilla-thumb.webp
 title: Shilla
 tagline: Shop, save, and score at Shilla!
