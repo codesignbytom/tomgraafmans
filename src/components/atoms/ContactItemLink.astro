@@ -1,19 +1,18 @@
 ---
 const { link = true, id, text, icon, external = false, url } = Astro.props;
+
+const classes =
+  "text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors self-start";
 ---
 
 {
   link ? (
-    <a
-      href={url}
-      target={external ? "_blank" : "_self"}
-      class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors"
-    >
+    <a href={url} target={external ? "_blank" : "_self"} class={classes}>
       <i class={`ph-fill ph-${icon ? icon : text + "-logo"}`.toLowerCase()} />
       <span>{text}</span>
     </a>
   ) : (
-    <div class="text-xl flex items-center gap-3 group hover:text-primary-500 transition-colors">
+    <div class={classes}>
       <i class={`ph-fill ph-${icon ? icon : text + "-logo"}`.toLowerCase()} />
       <span id={id}>{text}</span>
     </div>
