@@ -143,32 +143,36 @@ import Socials from "../components/molecules/Socials.astro";
   if (typeof window !== "undefined" && typeof document !== "undefined") {
     // Check if the current page URL matches the contact page URL
     if (window.location.pathname === "/contact/") {
-      function setLocalTime() {
-        const timeDisplay = document.querySelector(
-          "#time-display"
-        ) as HTMLDivElement;
+      function isDaylightSaving(time: Date) {
+        const jan = new Date(time.getFullYear(), 0, 1).getTimezoneOffset();
+        const jul = new Date(time.getFullYear(), 6, 1).getTimezoneOffset();
+        return Math.max(jan, jul) !== time.getTimezoneOffset();
+      }
+
+      function setAmsterdamTime() {
+        const timeDisplay = document.querySelector("#time-display");
 
         if (timeDisplay) {
-          const now = new Date();
-          const time = now.toLocaleTimeString("nl-NL", {
-            hour: "numeric",
-            minute: "numeric",
-            second: "numeric",
+          // Get the current time in Amsterdam
+          const amsterdamTime = new Date(
+            new Date().toLocaleString("en-US", { timeZone: "Europe/Amsterdam" })
+          );
+          const formattedTime = amsterdamTime.toLocaleTimeString("nl-NL", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
           });
 
-          // Calculate the GMT offset
-          const offset = -now.getTimezoneOffset();
-          const offsetHours = Math.floor(offset / 60);
-          const formattedOffset = `GMT${
-            offsetHours >= 0 ? "+" : ""
-          }${offsetHours}`;
+          // Determine the GMT offset (CET or CEST)
+          const gmtOffset = isDaylightSaving(amsterdamTime) ? "GMT+2" : "GMT+1";
 
-          timeDisplay.textContent = `${time} ${formattedOffset}`;
+          // Display the Amsterdam time with GMT offset
+          timeDisplay.textContent = `${formattedTime} ${gmtOffset}`;
         }
       }
 
-      setLocalTime();
-      setInterval(setLocalTime, 1000);
+      setAmsterdamTime();
+      setInterval(setAmsterdamTime, 1000); // Update the time every second
     }
   }
 </script>
