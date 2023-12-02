@@ -1,6 +1,7 @@
 ---
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "../consts";
 import { setColorMode } from "../assets/scripts/site";
+import CustomCursor from "../components/atoms/CustomCursor.astro";
 
 import Head from "../components/organisms/Head.astro";
 import Header from "../components/organisms/Header.astro";
@@ -15,11 +16,7 @@ import "@phosphor-icons/web/fill";
 
 const permalink = SITE_URL;
 const description = SITE_DESCRIPTION;
-const {
-  metaTitle = "Developer & Designer",
-  colorMode = "light",
-  pageTitle,
-} = Astro.props;
+const { metaTitle = "Developer & Designer", colorMode = "light" } = Astro.props;
 const title = `${SITE_NAME} • ${metaTitle}`;
 
 let isDarkMode = setColorMode(colorMode) === "dark";
@@ -27,7 +24,7 @@ let isDarkMode = setColorMode(colorMode) === "dark";
 
 <!doctype html>
 <html
-  lang="nl"
+  lang="en"
   class={`font-normal leading-relaxed font-body scroll-smooth ${
     isDarkMode ? "bg-black text-white" : ""
   }`}
@@ -39,5 +36,6 @@ let isDarkMode = setColorMode(colorMode) === "dark";
       <slot />
     </main>
     <Footer />
+    <CustomCursor />
   </body>
 </html>

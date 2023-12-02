@@ -1,5 +1,4 @@
 ---
-import CustomCursor from "../atoms/CustomCursor.astro";
 import Tag from "../atoms/Tag.astro";
 const { thumbnailSrc, title, tagline, url, tags } = Astro.props;
 
@@ -13,7 +12,7 @@ const uniqueTags = Array.from(
     <img
       src={thumbnailSrc}
       alt=`Thumbnail van ${title}`
-      class="object-cover w-full h-full aspect-square sm:aspect-video md:aspect-auto hover:brightness-75 transition-all duration-500 ease-in-out lg:cursor-none"
+      class="object-cover w-full h-full aspect-square sm:aspect-video md:aspect-auto hover:brightness-75 transition-all duration-500 ease-in-out"
       loading="lazy"
     />
   </a>
@@ -30,11 +29,11 @@ const uniqueTags = Array.from(
       {uniqueTags.map((tag) => <Tag key={tag} tagTitle={tag} />)}
     </div>
   </div>
-  <CustomCursor />
 </div>
 
 <script>
-  import { handleMouseOver } from "../../assets/scripts/mouseOver";
+  import { handleMouseOver } from "../../assets/scripts/customCursor";
+
   document.addEventListener("astro:page-load", () => {
     handleMouseOver(".project-preview img");
   });
