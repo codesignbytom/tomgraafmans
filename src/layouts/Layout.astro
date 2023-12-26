@@ -1,6 +1,4 @@
 ---
-import { Analytics } from "@vercel/analytics/react";
-
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "../consts";
 import { setColorMode } from "../assets/scripts/site";
 import CustomCursor from "../components/atoms/CustomCursor.astro";
@@ -39,6 +37,5 @@ let isDarkMode = setColorMode(colorMode) === "dark";
     </main>
     <Footer />
     <CustomCursor />
-    <Analytics />
   </body>
 </html>
