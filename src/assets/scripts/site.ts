@@ -4,7 +4,7 @@
  * @param {string} colorMode - The color mode to set.
  * @return {string} The color mode that was set.
  */
-export function setColorMode(colorMode: string) {
+export function setColorMode(colorMode: string): string {
   return colorMode;
 }
 
@@ -14,7 +14,7 @@ export function setColorMode(colorMode: string) {
  * @param {string} locale - The locale used to format the date.
  * @return {string} The localized string representation of the next month.
  */
-export function nextMonthToLocale(locale: string) {
+export function nextMonthToLocale(locale: string): string {
   const currentDate = new Date();
   const options = {
     month: "long",
@@ -35,7 +35,7 @@ export function nextMonthToLocale(locale: string) {
  * @param {number} n - The amount of time to delay in milliseconds. If not provided, the default value is 2000.
  * @return {Promise<boolean>} A promise that resolves to true after the specified delay.
  */
-export function delay(n: number) {
+export function delay(n: number): Promise<boolean> {
   n = n || 2000;
   return new Promise((done) => {
     setTimeout(() => {
