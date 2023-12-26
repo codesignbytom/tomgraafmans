@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.3.4",
     "@astrojs/tailwind": "^5.0.4",
+    "@astrojs/vercel": "^6.1.0",
     "@phosphor-icons/web": "^2.0.3",
     "@studio-freight/lenis": "^1.0.27",
     "astro": "^4.0.7",
