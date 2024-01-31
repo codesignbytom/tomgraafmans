@@ -22,8 +22,8 @@ ${header === true ? "after:bg-black/30" : "after:bg-white/30"}`;
         ? "flex-col gap-6 text-3xl"
         : "flex-row gap-6 text-3xl"
       : orientation === "vertical"
-      ? "flex-col gap-3"
-      : "flex-row gap-3 md:gap-6 lg:gap-8"
+        ? "flex-col gap-3"
+        : "flex-row gap-3 md:gap-6 lg:gap-8"
   }`}
 >
   <a
@@ -35,7 +35,7 @@ ${header === true ? "after:bg-black/30" : "after:bg-white/30"}`;
   <a
     id="menu-link"
     href="/work/"
-    class={pathName.includes("/work/")
+    class={pathName.includes("/work/") || pathName.includes("/services/")
       ? currentPageClasses
       : notCurrentPageClasses}>Work</a
   >

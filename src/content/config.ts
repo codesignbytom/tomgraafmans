@@ -8,7 +8,7 @@ const workCollection = defineCollection({
     tagline: z.string(),
     figmaUrl: z.string().url().optional(),
     siteUrl: z.string().url().optional(),
-    tags: z.array(z.string()),
+    services: z.array(z.string()),
     content: z.string(),
     gallery: z.array(z.string()).optional(),
   }),

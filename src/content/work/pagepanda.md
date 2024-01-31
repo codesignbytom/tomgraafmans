@@ -5,10 +5,10 @@ title: PagePanda
 tagline: Easily create your ideal landing page
 figmaUrl: https://www.figma.com/file/2YJtUE53pSOvKfO0Nxi9i8/PagePanda?type=design&t=WVt6hIWnWI6r03TA-6
 siteUrl: https://pagepanda.vercel.app/
-tags:
+services:
+  - copywriting
   - design
-  - copy
-  - concept
+  - development
 content: >-
   ### I created a single page landing page for PagePanda, a conceptual app that allows users to effortlessly build landing pages.
 

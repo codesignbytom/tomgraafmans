@@ -132,7 +132,7 @@ const { colorMode = "dark" } = Astro.props;
     );
 
     document.addEventListener("keydown", (event) => {
-      if (event.keyCode === 27) {
+      if (event.key === "Escape") {
         closeMenu(menu, openMenuButton, closeMenuButton, menuOverlay);
       }
     });

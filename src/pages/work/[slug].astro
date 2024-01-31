@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 import { marked } from "marked";
 import Layout from "../../layouts/Layout.astro";
-import Tag from "../../components/atoms/Tag.astro";
+import Service from "../../components/atoms/Service.astro";
 import Button from "../../components/atoms/Button.astro";
 
 const { entry, colorMode = "dark" }: { entry: any; colorMode?: string } =
@@ -19,8 +19,8 @@ export async function getStaticPaths() {
   }));
 }
 
-const uniqueTags = Array.from(
-  new Set(entry.data.tags.map((tag: string) => tag.toLowerCase()))
+const uniqueServices = Array.from(
+  new Set(entry.data.services.map((service: string) => service.toLowerCase()))
 );
 
 const gallery = Array.from(
@@ -53,8 +53,12 @@ const randomProject =
           <h1>{entry.data.title}</h1>
           <div class="flex flex-wrap gap-2">
             {
-              uniqueTags.map((tag) => (
-                <Tag key={tag} tagTitle={tag} colorMode={colorMode} />
+              uniqueServices.map((service) => (
+                <Service
+                  key={service}
+                  tagTitle={service}
+                  colorMode={colorMode}
+                />
               ))
             }
           </div>

@@ -4,9 +4,10 @@ thumbnail: /img/work/hanzekop/hanzekop-thumb.webp
 title: Hanzekop Holiday Homes
 tagline: Find your peace in Stavoren
 figmaUrl: https://www.figma.com/file/BPZOMY6oXaAeIdwpVqYbqW/Hanzekop?type=design&t=WVt6hIWnWI6r03TA-6
-tags:
-  - copy
+services:
   - branding
+  - copywriting
+  - design
 content: >-
   ### I embarked on creating a visually stunning design for Hanzekop Holiday Homes.
 

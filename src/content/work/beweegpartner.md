@@ -4,9 +4,9 @@ thumbnail: /img/work/beweegpartner/beweegpartner-thumb.webp
 title: Beweegpartner
 tagline: Get it moving with a new landing page
 figmaUrl: https://www.figma.com/file/fMrLoiq48XA9Yo51161RwH/Beweegpartner?type=design&node-id=3%3A5&mode=design&t=VBBFvo7lQvxsylm5-1
-tags:
+services:
+  - copywriting
   - design
-  - copy
 content: >-
   ### Commissioned by Enflow, I designed a new landing page for Beweegpartner.
 

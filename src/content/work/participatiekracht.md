@@ -5,7 +5,7 @@ title: ParticipatieKracht
 tagline: Exceptionally strong in engagement
 figmaUrl: https://www.figma.com/file/xDhwlgQLQSzbEIhIhSvgo5/ParticipatieKracht?type=design&t=WVt6hIWnWI6r03TA-6
 siteUrl: https://participatiekracht.nl/
-tags:
+services:
   - design
 content: >-
   ### For Lamper Design, I had the fantastic opportunity to create a vibrant one-pager for ParticipatieKracht.nl.

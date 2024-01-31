@@ -4,7 +4,7 @@ thumbnail: /img/work/shilla/shilla-thumb.webp
 title: Shilla
 tagline: Shop, save, and score at Shilla!
 figmaUrl: https://www.figma.com/file/5lAspk20zejdNYdhoRQGpw/Shilla?type=design&t=WVt6hIWnWI6r03TA-6
-tags:
+services:
   - branding
   - design
 content: >-

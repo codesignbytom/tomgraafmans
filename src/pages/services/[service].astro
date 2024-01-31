@@ -10,29 +10,33 @@ export async function getStaticPaths() {
       (a, b) =>
         new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
     );
-  const uniqueTags = [
-    ...new Set(allProjects.flatMap((project) => project.data.tags)),
+
+  const uniqueServices = [
+    ...new Set(allProjects.flatMap((project) => project.data.services)),
   ];
 
-  return uniqueTags.map((tag) => ({
-    params: { tag },
+  return uniqueServices.map((service) => ({
+    params: { service },
     props: {
       projects: allProjects.filter((project) =>
-        project.data.tags?.includes(tag)
+        project.data.services?.includes(service)
       ),
     },
   }));
 }
 
-const { tag } = Astro.params;
+const { service } = Astro.params;
 const { projects } = Astro.props;
 ---
 
-<Layout pageTitle="tag" metaTitle={tag.charAt(0).toUpperCase() + tag.slice(1)}>
+<Layout
+  pageTitle={service}
+  metaTitle={service.charAt(0).toUpperCase() + service.slice(1)}
+>
   <div
     class="container flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 py-8 sm:py-10 md:py-12 2xl:py-16"
   >
-    <h1 class="capitalize-first-letter">{tag}</h1>
+    <h1 class="capitalize-first-letter">{service}</h1>
     <div
       class="flex flex-col gap-6 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
     >
@@ -47,7 +51,7 @@ const { projects } = Astro.props;
                 title={project.data.title}
                 thumbnailSrc={project.data.thumbnail}
                 tagline={project.data.tagline}
-                tags={project.data.tags}
+                services={project.data.services}
               />
             </>
           ))

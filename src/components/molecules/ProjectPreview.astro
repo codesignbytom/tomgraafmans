@@ -1,9 +1,9 @@
 ---
-import Tag from "../atoms/Tag.astro";
-const { thumbnailSrc, title, tagline, url, tags } = Astro.props;
+import Service from "../atoms/Service.astro";
+const { thumbnailSrc, title, tagline, url, services } = Astro.props;
 
-const uniqueTags = Array.from(
-  new Set(tags.map((tag: string) => tag.toLowerCase()))
+const uniqueServices = Array.from(
+  new Set(services.map((service: string) => service.toLowerCase()))
 );
 ---
 
@@ -26,7 +26,11 @@ const uniqueTags = Array.from(
       </p>
     </div>
     <div class="flex flex-wrap gap-2 lg:gap-3">
-      {uniqueTags.map((tag) => <Tag key={tag} tagTitle={tag} />)}
+      {
+        uniqueServices.map((service) => (
+          <Service key={service} tagTitle={service} />
+        ))
+      }
     </div>
   </div>
 </div>

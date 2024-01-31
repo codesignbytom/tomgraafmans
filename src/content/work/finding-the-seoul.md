@@ -5,7 +5,7 @@ title: Finding the Seoul
 tagline: Ever thought about a holiday in South Korea?
 figmaUrl: https://www.figma.com/file/iB9VVB0UyU6vr1g3wfePot/Finding-the-Seoul?type=design&t=WVt6hIWnWI6r03TA-6
 siteUrl: https://www.findingtheseoul.com
-tags:
+services:
   - branding
   - design
 content: >-
