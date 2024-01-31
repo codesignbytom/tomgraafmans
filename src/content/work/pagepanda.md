@@ -4,6 +4,7 @@ thumbnail: /img/work/pagepanda/pagepanda-thumb.webp
 title: PagePanda
 tagline: Easily create your ideal landing page
 figmaUrl: https://www.figma.com/file/2YJtUE53pSOvKfO0Nxi9i8/PagePanda?type=design&t=WVt6hIWnWI6r03TA-6
+siteUrl: https://pagepanda.vercel.app/
 tags:
   - design
   - copy
