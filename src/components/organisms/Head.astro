@@ -30,13 +30,13 @@ const { title, description, permalink } = Astro.props;
 
 <meta name="generator" content={Astro.generator} />
 
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPPYFHF27B"
 ></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
+  // Extend the global Window object
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  function gtag(...args: any[]): void {
+    (window as any).dataLayer.push(args);
   }
   gtag("js", new Date());
 
