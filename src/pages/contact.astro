@@ -175,4 +175,10 @@ import Socials from "../components/molecules/Socials.astro";
       setInterval(setAmsterdamTime, 1000); // Update the time every second
     }
   }
+
+  window.onbeforeunload = () => {
+    for (const form of document.getElementsByTagName("form")) {
+      form.reset();
+    }
+  };
 </script>
