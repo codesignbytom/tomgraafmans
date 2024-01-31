@@ -17,7 +17,7 @@ const { title, description, permalink } = Astro.props;
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={permalink} />
-<meta property="og:title" content={title} />
+<meta property="og:title" {title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content="/social-cover.png" />
 
@@ -29,5 +29,18 @@ const { title, description, permalink } = Astro.props;
 <meta property="twitter:image" content="/social-cover.png" />
 
 <meta name="generator" content={Astro.generator} />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BPPYFHF27B"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-BPPYFHF27B");
+</script>
 
 <ViewTransitions />
