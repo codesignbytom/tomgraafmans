@@ -7,17 +7,22 @@
     },
     {
       "text": "Dribbble",
-      "url": "https://www.dribbble.com/varvino",
+      "url": "https://www.dribbble.com/graafmans_tom",
       "external": true
     },
     {
       "text": "Behance",
-      "url": "https://www.behance.net/tomgraafmans",
+      "url": "https://www.behance.net/graafmans_tom",
       "external": true
     },
     {
       "text": "Twitter",
       "url": "https://www.twitter.com/graafmans_tom",
+      "external": true
+    },
+    {
+      "text": "Facebook",
+      "url": "https://www.facebook.com/tomxgraafmans",
       "external": true
     },
     {
